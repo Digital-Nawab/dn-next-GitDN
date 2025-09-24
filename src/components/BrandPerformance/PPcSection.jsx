@@ -140,58 +140,7 @@ const PPCServicesSection = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Our PPC Services Section */}
-      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-50 to-blue-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-fade-in">
-              Our Best PPC Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-delay">
-              When you're new to search engine marketing, it will be very hard
-              to know which type of ads will work for your business. Here's how
-              we can help.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 animate-slide-up"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
-                  <service.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  {service.description}
-                </p>
-
-                {/* Additional details based on service type */}
-                {index === 0 && (
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3 text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span>Add PPC Keywords to increase reach</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span>Add Negative Keywords to prevent wasted spend</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                      <span>Split Ad Groups for better targeting</span>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Our Best PPC Services Section */}
       <section className="relative py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
