@@ -1,5 +1,5 @@
 import ColourfulText from "../../components/ui/colourful-text";
-
+import Image from 'next/image'
 const AboutIntro = () => (
   <section className="bg-white py-12 px-4 md:px-12">
     <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-2 md:px-8">

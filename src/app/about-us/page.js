@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image'
 
 import About from "@/components/About/About";
 import React from "react";

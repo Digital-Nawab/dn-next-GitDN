@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image'
 
 import * as React from "react"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"

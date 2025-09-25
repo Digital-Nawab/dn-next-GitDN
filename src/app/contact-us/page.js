@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import Image from 'next/image'
 import Contact from '@/components/Contact/Contact'
 import React from 'react'
 

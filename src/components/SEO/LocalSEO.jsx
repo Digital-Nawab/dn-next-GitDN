@@ -109,15 +109,15 @@ const LocalSEO = () => {
                     }}
                   />
 
-                  {/* CTA Button */}
+                  
                   <div className="flex items-center justify-between">
-                    <button className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${service.gradient} text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 group-hover:shadow-xl`}>
+                    {/* <button className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${service.gradient} text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 group-hover:shadow-xl`}>
                       Learn More
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                    </button>
+                    </button> */}
                     
-                    {/* Service Icon Indicator */}
-                    <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500 transform group-hover:rotate-45`}>
+                    
+                    <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${service.gradient} opacity-100  flex items-center justify-center transition-all duration-500 transform group-hover:rotate-45`}>
                       <Globe className="w-5 h-5 text-white" />
                     </div>
                   </div>

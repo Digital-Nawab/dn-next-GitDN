@@ -261,23 +261,7 @@ const EnhancedLeadGenerationSection = () => {
         </div>
 
         {/* Call to Action */}
-        <div
-          className="text-center mt-16"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={fadeInUpVariants}
-        >
-          <button
-            className="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
-            whilehover={{ 
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)"
-            }}
-            whiletap={{ scale: 0.95 }}
-          >
-            Start Generating Leads Today
-          </button>
-        </div>
+        
       </div>
     </section>
   );

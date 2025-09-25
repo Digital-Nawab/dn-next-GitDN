@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ArrowRight, Play, Eye, Zap, Layers, Sparkles } from "lucide-react";
 import { ContainerTextFlip } from "@/components/ui/container-text-flip";
-
+import Image from 'next/image'
 const DesignServicesHero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });

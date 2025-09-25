@@ -1,10 +1,9 @@
 "use client";
+import Image from 'next/image'
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import WaveyPattern from "./WaveyPattern";
 import useApi from "@/lib/url/useApi";
-
 const TechnologyCard = ({ tech }) => {
   const [error, setError] = useState(false);
 
@@ -12,7 +11,7 @@ const TechnologyCard = ({ tech }) => {
     <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-100">
       <div className="mb-4 flex justify-center">
         {!error ? (
-          <Image
+          <img
             src={tech.logo}
             alt={tech.name}
             width={80}

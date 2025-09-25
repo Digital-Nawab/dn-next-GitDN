@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion"; // For animations (Aceternity UI often uses Framer Motion)
 import { Button } from "@/components/ui/button"; // Shadcn Button component
 import { BarChart, TestTube, Users, Target } from "lucide-react"; // Icons for list items
+import ContactPopup from "../ContactPopup";
 
 const CROServices = () => {
 
@@ -98,7 +99,7 @@ const CROServices = () => {
         </div>
 
         {/* Call to Action */}
-        <div
+        {/* <div
           initial={{ opacity: 0, y: 20 }}
           //whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -108,7 +109,11 @@ const CROServices = () => {
           <Button className="bg-[#6B46C1] text-white font-semibold py-3 px-8 rounded-lg hover:bg-[#5A3AB7] transition">
             Start Optimizing with Digital Nawab
           </Button>
-        </div>
+        </div> */}
+         <ContactPopup
+              buttonText="Start Optimizing with Digital Nawab"
+              buttonClassName="bg-[#6B46C1] text-white font-semibold py-3 px-8 mt-12 rounded-lg hover:bg-[#5A3AB7] transition"
+            />
       </div>
     </div>
   );

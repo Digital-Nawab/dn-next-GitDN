@@ -1,5 +1,6 @@
 "use client";
 
+
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -13,7 +14,7 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import { ChevronDown } from "lucide-react";
-
+import Image from 'next/image'
 // 🔗 ActiveLink wrapper
 function ActiveLink({ href, children }) {
   const pathname = usePathname();
@@ -111,12 +112,12 @@ const NavBar = () => {
                               Direct Marketing
                             </Link>
                           </MenubarItem>
-                          {/* <MenubarSeparator />
+                          <MenubarSeparator />
                           <MenubarItem asChild>
-                            <Link href="/content-marketing">
-                              Content Marketing
+                            <Link href="/service/ecommerce-marketing">
+                              E-Commerce Marketing
                             </Link>
-                          </MenubarItem> */}
+                          </MenubarItem>
                         </MenubarContent>
                       </MenubarMenu>
                     </Menubar>

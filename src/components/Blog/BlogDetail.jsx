@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image'
 
 import React, { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/navigation"; // instead of react-router-dom

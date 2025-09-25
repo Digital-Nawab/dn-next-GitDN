@@ -1,4 +1,5 @@
-"use client";;
+"use client";
+import Image from 'next/image';
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { useMotionTemplate, useMotionValue, motion } from "motion/react";

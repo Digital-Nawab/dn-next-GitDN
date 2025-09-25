@@ -1,7 +1,7 @@
 import { FileText, Edit, Search, FileEdit, PenTool, Globe, Target, ArrowRight, Award, Users, Star, Zap } from "lucide-react";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { motion } from "framer-motion";
-
+import Image from 'next/image'
 const WhatWeAccomplishSection = () => {
   const achievements = [
     {

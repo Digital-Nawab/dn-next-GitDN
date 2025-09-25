@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-
+import Image from 'next/image'
 const TeamCard = ({ member, isVisible }) => (
   <div
     className={`group transition-all duration-700 ${

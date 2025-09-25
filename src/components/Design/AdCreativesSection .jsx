@@ -19,7 +19,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ThreeDMarqueeDemoSecond } from "../Home/ThreeDMarqueeDemoSecond";
-
+import Image from 'next/image'
 // Aceternity UI Background Components (Modified for Light Mode)
 const GridBackground = () => (
   <div className="absolute inset-0 opacity-20">
@@ -680,7 +680,7 @@ const AdCreativesSection = () => {
                 className="bg-gradient-to-r from-cyan-400 to-blue-400 text-white hover:from-cyan-500 hover:to-blue-500 px-6 py-3 text-lg"
                 asChild
               >
-                <a href="/contact">Get in Touch</a>
+                <a href="/contact-us">Get in Touch</a>
               </Button>
             </CardContent>
           </Card>

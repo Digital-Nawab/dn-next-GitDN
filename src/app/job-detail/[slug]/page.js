@@ -1,6 +1,8 @@
 "use client";
+import Image from 'next/image'
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { use } from "react";
 import {
   ArrowLeft,
   MapPin,
@@ -9,33 +11,155 @@ import {
   Calendar,
   Share2,
   ArrowUpRight,
+  X,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import Banner from "@/components/Banner"; // adjust if needed
+import Banner from "@/components/Banner";
+import { motion } from "framer-motion";
 
 export default function JobDetailPage({ params }) {
   const router = useRouter();
-  const slug = decodeURIComponent(params.slug);
-
+  const { slug } = use(params);
   const [job, setJob] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const formRef = useRef(null);
 
+  // Form state
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    address: "",
+    experience: "",
+    resume: null,
+    skills: [],
+    projectLinks: "",
+    message: "",
+    job_id: "",
+  });
+  const [formError, setFormError] = useState("");
+  const [formSuccess, setFormSuccess] = useState("");
+  const [currentSkill, setCurrentSkill] = useState(""); // For skill input
+
+  // Fetch job details
   useEffect(() => {
     const fetchJob = async () => {
       try {
+        setLoading(true);
         const res = await axios.get(
           `https://dashboard.digitalnawab.com/api/careerdetail/${slug}`
         );
         setJob(res?.data?.data);
+        setFormData((prev) => ({ ...prev, job_id: res?.data?.data?.id || "" }));
+        setLoading(false);
       } catch (err) {
         console.error("Error fetching job:", err);
+        setError("Failed to load job details.");
+        setLoading(false);
       }
     };
 
     if (slug) fetchJob();
   }, [slug]);
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Handle skill input change
+  const handleSkillChange = (e) => {
+    setCurrentSkill(e.target.value);
+  };
+
+  // Add skill to array
+  const addSkill = () => {
+    if (currentSkill.trim() && !formData.skills.includes(currentSkill.trim())) {
+      setFormData((prev) => ({
+        ...prev,
+        skills: [...prev.skills, currentSkill.trim()],
+      }));
+      setCurrentSkill("");
+    }
+  };
+
+  // Remove skill from array
+  const removeSkill = (skillToRemove) => {
+    setFormData((prev) => ({
+      ...prev,
+      skills: prev.skills.filter((skill) => skill !== skillToRemove),
+    }));
+  };
+
+  // Handle file upload
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file && (file.type === "application/pdf" || file.type.includes("msword"))) {
+      setFormData((prev) => ({ ...prev, resume: file }));
+      setFormError("");
+    } else {
+      setFormError("Please upload a PDF or Word document.");
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormError("");
+    setFormSuccess("");
+
+    // Validation
+    if (!formData.name || !formData.email || !formData.contact || !formData.address || !formData.experience || !formData.resume || !formData.skills.length) {
+      setFormError("Please fill in all required fields and add at least one skill.");
+      return;
+    }
+
+    const formDataToSend = new FormData();
+    Object.keys(formData).forEach((key) => {
+      if (key === "skills") {
+        formDataToSend.append(key, JSON.stringify(formData[key]));
+      } else if (key === "resume") {
+        if (formData[key]) formDataToSend.append(key, formData[key]);
+      } else {
+        formDataToSend.append(key, formData[key]);
+      }
+    });
+
+    try {
+      // Placeholder API endpoint
+      await axios.post("https://dashboard.digitalnawab.com/api/apply", formDataToSend, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      setFormSuccess("Application submitted successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        contact: "",
+        address: "",
+        experience: "",
+        resume: null,
+        skills: [],
+        projectLinks: "",
+        message: "",
+        job_id: job?.id || "",
+      });
+      setCurrentSkill("");
+    } catch (err) {
+      console.error("Error submitting form:", err);
+      setFormError("Failed to submit application. Please try again.");
+    }
+  };
+
+  // Scroll to form
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <Banner
         title={job?.desig}
         subtitle="We'd love to hear from you!"
@@ -48,7 +172,10 @@ export default function JobDetailPage({ params }) {
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex items-center gap-4 mb-6">
-            <button className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <button
+              onClick={() => router.push("/career")}
+              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+            >
               <ArrowLeft className="w-5 h-5" />
               Back to Jobs
             </button>
@@ -57,8 +184,8 @@ export default function JobDetailPage({ params }) {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-4">
-                <div className="bg-lime-400 text-black px-3 py-1 rounded-full text-sm font-medium">
-                  {job?.title}{" "}
+                <div className="bg-gradient-to-r from-lime-400 to-green-500 text-black px-3 py-1 rounded-full text-sm font-medium">
+                  {job?.title}
                 </div>
                 <div className="flex items-center gap-2 text-gray-600">
                   <Calendar className="w-4 h-4" />
@@ -81,10 +208,6 @@ export default function JobDetailPage({ params }) {
                   <Users className="w-4 h-4" />
                   <span>{job?.work_mode}</span>
                 </div>
-                {/* <div className="flex items-center gap-2">
-                  <DollarSign className="w-4 h-4" />
-                  <span>$80,000 - $100,000</span>
-                </div> */}
               </div>
             </div>
 
@@ -92,11 +215,15 @@ export default function JobDetailPage({ params }) {
               <button className="p-3 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors">
                 <Share2 className="w-5 h-5 text-gray-600" />
               </button>
-
-              <button className="bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors inline-flex items-center gap-2">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={scrollToForm}
+                className="bg-gradient-to-r from-black to-gray-800 text-white px-8 py-3 rounded-full font-semibold transition-colors inline-flex items-center gap-2 shadow-md"
+              >
                 Apply Now
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
@@ -129,7 +256,7 @@ export default function JobDetailPage({ params }) {
                   ?.filter((x) => x != null)
                   ?.map((responsibility, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-lime-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-gradient-to-r from-lime-400 to-green-500 rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-gray-600">{responsibility}</span>
                     </li>
                   ))}
@@ -146,7 +273,7 @@ export default function JobDetailPage({ params }) {
                   ?.filter((x) => x != null)
                   ?.map((requirement, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-lime-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-gradient-to-r from-lime-400 to-green-500 rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-gray-600">{requirement}</span>
                     </li>
                   ))}
@@ -163,7 +290,7 @@ export default function JobDetailPage({ params }) {
                   ?.filter((x) => x != null)
                   ?.map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-lime-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-gradient-to-r from-lime-400 to-green-500 rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-gray-600">{benefit}</span>
                     </div>
                   ))}
@@ -182,10 +309,15 @@ export default function JobDetailPage({ params }) {
                 Join our team and help us build amazing digital experiences that
                 make a real impact.
               </p>
-              <button className="w-full bg-black text-white py-4 rounded-full font-semibold hover:bg-gray-800 transition-colors mb-4">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={scrollToForm}
+                className="w-full bg-gradient-to-r from-black to-gray-800 text-white py-4 rounded-full font-semibold transition-colors shadow-md"
+              >
                 Apply for This Position
-              </button>
-              <p className="text-sm text-gray-500 text-center">
+              </motion.button>
+              <p className="text-sm text-gray-500 text-center mt-4">
                 We typically respond within 2-3 business days
               </p>
             </div>
@@ -202,7 +334,7 @@ export default function JobDetailPage({ params }) {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Industry</span>
-                  <span className="font-medium ">Digital Marketing</span>
+                  <span className="font-medium">Digital Marketing</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Founded</span>
@@ -241,6 +373,223 @@ export default function JobDetailPage({ params }) {
             </div>
           </div>
         </div>
+
+        {/* Application Form */}
+        <motion.div
+          ref={formRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mt-12 bg-white rounded-2xl p-4 lg:p-8 shadow-xl border-2 border-gradient-to-r from-lime-400 to-green-500"
+        >
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+            Apply for {job?.desig}
+          </h2>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <input type="hidden" name="job_id" value={formData.job_id} />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Name */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  Full Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Enter your full name"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 transition-all duration-300 bg-gray-50 text-gray-900 placeholder-gray-400"
+                  required
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="Enter your email"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 transition-all duration-300 bg-gray-50 text-gray-900 placeholder-gray-400"
+                  required
+                />
+              </div>
+
+              {/* Contact */}
+              <div>
+                <label htmlFor="contact" className="block text-sm font-medium text-gray-700 mb-1">
+                  Contact Number <span className="text-red-500">*</span>
+                </label>
+                <input
+                  id="contact"
+                  name="contact"
+                  type="tel"
+                  value={formData.contact}
+                  onChange={handleInputChange}
+                  placeholder="Enter your contact number"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 transition-all duration-300 bg-gray-50 text-gray-900 placeholder-gray-400"
+                  required
+                />
+              </div>
+
+              {/* Address */}
+              <div>
+                <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
+                  Address <span className="text-red-500">*</span>
+                </label>
+                <input
+                  id="address"
+                  name="address"
+                  type="text"
+                  value={formData.address}
+                  onChange={handleInputChange}
+                  placeholder="Enter your address"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 transition-all duration-300 bg-gray-50 text-gray-900 placeholder-gray-400"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Years of Experience */}
+            <div>
+              <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">
+                Years of Experience <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="experience"
+                name="experience"
+                type="number"
+                min="0"
+                value={formData.experience}
+                onChange={handleInputChange}
+                placeholder="Enter years of experience"
+                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 transition-all duration-300 bg-gray-50 text-gray-900 placeholder-gray-400"
+                required
+              />
+            </div>
+
+            {/* Resume Upload */}
+            <div>
+              <label htmlFor="resume" className="block text-sm font-medium text-gray-700 mb-1">
+                Resume (PDF or Word) <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="resume"
+                name="resume"
+                type="file"
+                accept=".pdf,.doc,.docx"
+                onChange={handleFileChange}
+                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 transition-all duration-300 bg-gray-50 text-gray-900 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-lime-400 file:text-white file:hover:bg-lime-500"
+                required
+              />
+            </div>
+
+            {/* Skills */}
+            <div>
+              <label htmlFor="skills" className="block text-sm font-medium text-gray-700 mb-1">
+                Skills <span className="text-red-500">*</span>
+              </label>
+              <div className="flex items-center gap-2">
+                <input
+                  id="skills"
+                  type="text"
+                  value={currentSkill}
+                  onChange={handleSkillChange}
+                  placeholder="Enter a skill"
+                  className="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 transition-all duration-300 bg-gray-50 text-gray-900 placeholder-gray-400"
+                />
+                <motion.button
+                  type="button"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={addSkill}
+                  disabled={!currentSkill.trim()}
+                  className="px-4 py-3 bg-gradient-to-r from-lime-400 to-green-500 text-white rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Add
+                </motion.button>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {formData.skills.map((skill, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                    className="flex items-center gap-1 bg-lime-100 text-gray-900 px-3 py-1 rounded-full text-sm font-medium"
+                  >
+                    {skill}
+                    <button
+                      type="button"
+                      onClick={() => removeSkill(skill)}
+                      className="ml-1 text-gray-600 hover:text-red-500"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Project Links */}
+            <div>
+              <label htmlFor="projectLinks" className="block text-sm font-medium text-gray-700 mb-1">
+                Project Links (Optional)
+              </label>
+              <textarea
+                id="projectLinks"
+                name="projectLinks"
+                value={formData.projectLinks}
+                onChange={handleInputChange}
+                placeholder="Enter project links (one per line)"
+                rows={4}
+                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 transition-all duration-300 bg-gray-50 text-gray-900 placeholder-gray-400"
+              />
+            </div>
+
+            {/* Message */}
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                Message (Optional)
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder="Enter any additional information"
+                rows={4}
+                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 transition-all duration-300 bg-gray-50 text-gray-900 placeholder-gray-400"
+              />
+            </div>
+
+            {/* Form Status */}
+            {formError && (
+              <p className="text-red-500 text-sm text-center">{formError}</p>
+            )}
+            {formSuccess && (
+              <p className="text-green-500 text-sm text-center">{formSuccess}</p>
+            )}
+
+            {/* Submit Button */}
+            <motion.button
+              type="submit"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full bg-gradient-to-r from-black to-gray-800 text-white py-4 rounded-full font-semibold transition-colors shadow-md"
+            >
+              Submit Application
+            </motion.button>
+          </form>
+        </motion.div>
       </div>
     </div>
   );

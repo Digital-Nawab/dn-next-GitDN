@@ -1,10 +1,10 @@
 "use client";
+import Image from 'next/image'
 
 import { Mail, MapPin, Phone, Smartphone } from "lucide-react";
 import React from "react";
 import ColourfulText from "@/components/ui/colourful-text";
 import Link from "next/link";
-
 const Footer = () => {
   return (
     <footer className="bg-black text-white">

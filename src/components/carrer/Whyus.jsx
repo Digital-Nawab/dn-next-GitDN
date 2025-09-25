@@ -1,6 +1,6 @@
 import React from "react";
 import { Users, Lightbulb, TrendingUp } from "lucide-react";
-
+import Image from 'next/image'
 const CompanyCultureSection = () => {
   return (
     <div className="max-w-7xl bg-white mx-auto px-4 py-16 lg:py-24">

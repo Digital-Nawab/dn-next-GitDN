@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import Image from 'next/image'
 
 import React , { useEffect, useState } from "react";
 import { motion } from "framer-motion"; // For animations (Aceternity UI often uses Framer Motion)
@@ -100,11 +101,11 @@ const SeoPlanningProcess = () => {
                   dangerouslySetInnerHTML={{ __html: step.description }}
                 />
 
-                <Button
+                {/* <Button
                   className="mt-4 bg-[#D4FF66] text-black hover:bg-[#C0E55A]"
                 >
                   Learn More
-                </Button>
+                </Button> */}
               </div>
             </div>
           ))}

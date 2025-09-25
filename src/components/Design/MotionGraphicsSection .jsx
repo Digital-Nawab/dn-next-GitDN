@@ -15,7 +15,7 @@ import {
   Users,
   TrendingUp,
 } from "lucide-react";
-
+import Image from 'next/image'
 const MotionGraphicsSection = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [isVisible, setIsVisible] = useState(false);

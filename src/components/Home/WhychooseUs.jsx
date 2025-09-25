@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import ColourfulText from "../../components/ui/colourful-text";
 import { WobbleCard } from "@/components/ui/wobble-card";
+import ContactPopup from "../ContactPopup";
 
 export default function WhyChooseUsSection() {
   return (
@@ -50,7 +51,14 @@ export default function WhyChooseUsSection() {
                     Expert Digital Marketing Team with Proven Results
                   </h3>
                   <p className="text-gray-100 leading-relaxed">
-                    Digital Nawab unites a team of professionals with extensive experience in Google Ads marketing and using performance-based techniques. Every professional is concerned about the measurable outcome, ad-spend optimisation, and sustainable growth. The campaigns are tailored, data-driven, and regularly optimised to ensure clients achieve maximum ROI at every stage of their online experience.
+                    Digital Nawab unites a team of professionals with extensive
+                    experience in Google Ads marketing and using
+                    performance-based techniques. Every professional is
+                    concerned about the measurable outcome, ad-spend
+                    optimisation, and sustainable growth. The campaigns are
+                    tailored, data-driven, and regularly optimised to ensure
+                    clients achieve maximum ROI at every stage of their online
+                    experience.
                   </p>
                   <div className="mt-6 flex items-center text-white font-medium">
                     <CheckCircle2 className="w-5 h-5 mr-2" />
@@ -73,13 +81,22 @@ export default function WhyChooseUsSection() {
                   Flexible Branding and Custom Digital Solutions
                 </h3>
                 <p className="text-blue-100  leading-relaxed mb-6">
-                  Digital Nawab builds custom digital solutions by offering Website design and development. We utilise even the identity of the brand we are dealing with to create a seamless functionality, a stimulating visual representation, and a user experience that fosters trust, retention, and measurable online success.
+                  Digital Nawab builds custom digital solutions by offering
+                  Website design and development. We utilise even the identity
+                  of the brand we are dealing with to create a seamless
+                  functionality, a stimulating visual representation, and a user
+                  experience that fosters trust, retention, and measurable
+                  online success.
                 </p>
 
-                <button className="group bg-lime-400 hover:bg-lime-500 text-gray-900 font-semibold px-4 py-2 rounded-xl transition-all duration-300 flex items-center gap-3">
+                {/* <button className="group bg-lime-400 hover:bg-lime-500 text-gray-900 font-semibold px-4 py-2 rounded-xl transition-all duration-300 flex items-center gap-3">
                   Get Started Now
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
+                </button> */}
+                <ContactPopup
+                  buttonText="Get Started Now"
+                  buttonClassName="group bg-lime-400 z-50 hover:bg-lime-500 text-gray-900 font-semibold px-4 py-2 rounded-xl transition-all duration-300 flex items-center gap-3"
+                />
               </WobbleCard>
               <WobbleCard containerClassName="col-span-1 z-30 lg:col-span-3 bg-blue-900  xl:min-h-[600px] xl:min-h-[300px]">
                 <div className="group bg-transparent rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 lg:col-span-3 transform hover:-translate-y-1">
@@ -91,7 +108,12 @@ export default function WhyChooseUsSection() {
                       Complete Digital Marketing Solutions for Business Growth
                     </h3>
                     <p className="text-gray-100 leading-relaxed">
-                      Digital Nawab is the renowned local SEO agency in Lucknow. We offer comprehensive online marketing solutions to drive business growth. The combination of strategy, creativity, and technology in our solutions is used to increase visibility, generate qualified leads, and create a lasting brand impression through multiple digital touchpoints.
+                      Digital Nawab is the renowned local SEO agency in Lucknow.
+                      We offer comprehensive online marketing solutions to drive
+                      business growth. The combination of strategy, creativity,
+                      and technology in our solutions is used to increase
+                      visibility, generate qualified leads, and create a lasting
+                      brand impression through multiple digital touchpoints.
                     </p>
                     <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                       {[
@@ -122,7 +144,6 @@ export default function WhyChooseUsSection() {
             </div>
           </div>
         </div>
-        
       </div>
     </>
   );

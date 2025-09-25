@@ -10,6 +10,7 @@ import {
   Zap,
 } from "lucide-react";
 import confetti from "canvas-confetti";
+import ContactPopup from "../ContactPopup";
 
 const BacklinkBuilding = () => {
   const [konamiCode, setKonamiCode] = useState([]);
@@ -344,13 +345,17 @@ const BacklinkBuilding = () => {
                 Let's discuss how our SEO services can transform your online
                 presence
               </p>
-              <button
+              {/* <button
                 whilehover={{ scale: 1.05 }}
                 whiletap={{ scale: 0.95 }}
                 className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Get Started Today
-              </button>
+              </button> */}
+               <ContactPopup
+              buttonText=" Get Started Today"
+              buttonClassName="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+            />
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import Image from 'next/image'
 import DigialMarketing from "@/components/DigitalMarketing/DigialMarketing";
 import React from "react";
 import MediaBuyingSection from '@/components/BrandPerformance/MediaBuying';

@@ -1,20 +1,294 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-  Zap,
-  Sparkles,
-  Target,
-  Compass,
-  Filter,
-  Grid3X3,
-  Search,
-} from "lucide-react";
-
+import axios from "axios";
+import { Zap, Sparkles, Target, Compass, Link } from "lucide-react";
+import Image from "next/image";
+import ContactPopup from "../ContactPopup";
 const LogoDesignSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredLogo, setHoveredLogo] = useState(null);
+  const [clickedLogo, setClickedLogo] = useState(null); // Track clicked logo for overlay
   const [visibleLogos, setVisibleLogos] = useState(12); // Show 12 logos initially
+  const [logoPortfolio, setLogoPortfolio] = useState([]); // State for dynamic logos
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(null); // Error state
   const sectionRef = useRef(null);
 
+  // Static logo portfolio (fallback)
+  const staticLogoPortfolio = [
+    {
+      id: 1,
+      title: "Academy 1",
+      category: "education",
+      type: "Wordmark",
+      height: "h-48",
+      img: "/assets/Logos/logo/academy 1.webp",
+    },
+    {
+      id: 4,
+      title: "Divyanjali Logo",
+      category: "fashion",
+      type: "Wordmark",
+      height: "h-54",
+      img: "/assets/Logos/logo/Divyanjali LOGO .webp",
+    },
+    {
+      id: 5,
+      title: "Jaya Logo 1",
+      category: "personal",
+      type: "Script Logo",
+      height: "h-50",
+      img: "/assets/Logos/logo/JAYA LOGO1 (4) copy.webp",
+    },
+    {
+      id: 6,
+      title: "KNK Logo Golden",
+      category: "luxury",
+      type: "Symbol",
+      height: "h-58",
+      img: "/assets/Logos/logo/KNK LOGO GOLDEN.webp",
+    },
+    {
+      id: 8,
+      title: "ICS Logo",
+      category: "tech",
+      type: "Monogram",
+      height: "h-48",
+      img: "/assets/Logos/logo/LCS LOGO.webp",
+    },
+    {
+      id: 9,
+      title: "Logo Final 1",
+      category: "general",
+      type: "Wordmark",
+      height: "h-52",
+      img: "/assets/Logos/logo/logo final (1) (1).webp",
+    },
+    {
+      id: 10,
+      title: "Logo Final",
+      category: "general",
+      type: "Symbol",
+      height: "h-52",
+      img: "/assets/Logos/logo/lOGO FINAL.webp",
+    },
+    {
+      id: 11,
+      title: "Logo High",
+      category: "tech",
+      type: "Symbol + Text",
+      height: "h-64",
+      img: "/assets/Logos/logo/logo high.webp",
+    },
+    {
+      id: 12,
+      title: "Logo Thia Pink",
+      category: "fashion",
+      type: "Wordmark",
+      height: "h-50",
+      img: "/assets/Logos/logo/LOGO thia pink.webp",
+    },
+    {
+      id: 13,
+      title: "Logo TTK Black",
+      category: "business",
+      type: "Monogram",
+      height: "h-48",
+      img: "/assets/Logos/logo/Logo TTK ( black).webp",
+    },
+    {
+      id: 14,
+      title: "Logo DND",
+      category: "gaming",
+      type: "Symbol",
+      height: "h-56",
+      img: "/assets/Logos/logo/LOGO_DNdd.webp",
+    },
+    {
+      id: 15,
+      title: "Logo AA",
+      category: "general",
+      type: "Wordmark",
+      height: "h-48",
+      img: "/assets/Logos/logo/logoaa.webp",
+    },
+    {
+      id: 16,
+      title: "Logo 2",
+      category: "general",
+      type: "Symbol",
+      height: "h-52",
+      img: "/assets/Logos/logo/logo2.webp",
+    },
+    {
+      id: 17,
+      title: "Miqh Logo",
+      category: "business",
+      type: "Monogram",
+      height: "h-54",
+      img: "/assets/Logos/logo/Miqh Logoj.webp",
+    },
+    {
+      id: 18,
+      title: "MK Black Logo",
+      category: "fashion",
+      type: "Wordmark",
+      height: "h-50",
+      img: "/assets/Logos/logo/MK black logo .webp",
+    },
+    {
+      id: 19,
+      title: "MK Logo Copy",
+      category: "personal",
+      type: "Symbol + Text",
+      height: "h-48",
+      img: "/assets/Logos/logo/MK_Logo_ (1) - Copy.webp",
+    },
+    {
+      id: 20,
+      title: "Mrs India Logo",
+      category: "fashion",
+      type: "Wordmark",
+      height: "h-56",
+      img: "/assets/Logos/logo/Mrs India Logo.webp",
+    },
+    {
+      id: 21,
+      title: "Pardehi Logo PNG",
+      category: "personal",
+      type: "Symbol",
+      height: "h-58",
+      img: "/assets/Logos/logo/pardehi logo png.webp",
+    },
+    {
+      id: 23,
+      title: "Prerna Singh Logo",
+      category: "personal",
+      type: "Script Logo",
+      height: "h-54",
+      img: "/assets/Logos/logo/prerna singh logo.webp",
+    },
+    {
+      id: 24,
+      title: "Rambler",
+      category: "travel",
+      type: "Symbol + Text",
+      height: "h-52",
+      img: "/assets/Logos/logo/rambler.webp",
+    },
+    {
+      id: 25,
+      title: "Ritu Roy Logo",
+      category: "personal",
+      type: "Wordmark",
+      height: "h-50",
+      img: "/assets/Logos/logo/ritu roy logo.webp",
+    },
+    {
+      id: 26,
+      title: "SBSB Logo",
+      category: "business",
+      type: "Monogram",
+      height: "h-48",
+      img: "/assets/Logos/logo/SBSB logo.webp",
+    },
+    {
+      id: 27,
+      title: "Season 3 Logo",
+      category: "entertainment",
+      type: "Symbol",
+      height: "h-56",
+      img: "/assets/Logos/logo/season-3 logo.WEBP",
+    },
+    {
+      id: 28,
+      title: "Signex Logo",
+      category: "tech",
+      type: "Wordmark",
+      height: "h-64",
+      img: "/assets/Logos/logo/signex logo.webp",
+    },
+    {
+      id: 29,
+      title: "Skin Art Logo",
+      category: "healthcare",
+      type: "Symbol + Text",
+      height: "h-52",
+      img: "/assets/Logos/logo/skin art logo.webp",
+    },
+    {
+      id: 30,
+      title: "Sri Venu",
+      category: "personal",
+      type: "Monogram",
+      height: "h-48",
+      img: "/assets/Logos/logo/sri venu.webp",
+    },
+    {
+      id: 31,
+      title: "Tender Hearts School Logo",
+      category: "education",
+      type: "Wordmark",
+      height: "h-54",
+      img: "/assets/Logos/logo/tender hearts school logo png.webp",
+    },
+    {
+      id: 32,
+      title: "Tiska Logo Mail",
+      category: "business",
+      type: "Symbol",
+      height: "h-50",
+      img: "/assets/Logos/logo/TISKA LOGO MAIL.webp",
+    },
+    {
+      id: 33,
+      title: "Vinod Sharraf",
+      category: "personal",
+      type: "Script Logo",
+      height: "h-56",
+      img: "/assets/Logos/logo/vinod sharraf png.webp",
+    },
+    {
+      id: 34,
+      title: "WhatsApp Image",
+      category: "general",
+      type: "Symbol + Text",
+      height: "h-46",
+      img: "/assets/Logos/logo/WhatsApp Image 2023-06-21 at 3.35.37 PM.webp",
+    },
+  ];
+
+  // Fetch logos from API
+  useEffect(() => {
+    const fetchLogos = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(
+          "https://dashboard.digitalnawab.com/api/getLogo"
+        );
+        const apiLogos = response.data.data.map((logo) => ({
+          id: logo.id,
+          title: logo.name,
+          category: "general",
+          type: "Symbol",
+          height: "h-48",
+          img: `https://dashboard.digitalnawab.com/${logo.img}`,
+          url: logo.url,
+        }));
+
+        // Use API logos, fallback to static if API returns empty
+        setLogoPortfolio(apiLogos.length > 0 ? apiLogos : staticLogoPortfolio);
+        setLoading(false);
+      } catch (err) {
+        setError("Failed to fetch logos from the API.");
+        setLoading(false);
+        setLogoPortfolio(staticLogoPortfolio);
+      }
+    };
+
+    fetchLogos();
+  }, []);
+
+  // Intersection Observer for visibility
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -31,283 +305,6 @@ const LogoDesignSection = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  const logoPortfolio = [
-    // General Category
-    {
-      id: 1,
-      title: "Academy 1",
-      category: "education",
-      type: "Wordmark",
-      // color: "from-blue-500 to-cyan-500",
-      height: "h-48",
-      img: "/assets/Logos/logo/academy 1.webp",
-    },
-
-    {
-      id: 4,
-      title: "Divyanjali Logo",
-      category: "fashion",
-      type: "Wordmark",
-      // color: "from-gray-500 to-gray-700",
-      height: "h-54",
-      img: "/assets/Logos/logo/Divyanjali LOGO .webp",
-    },
-    {
-      id: 5,
-      title: "Jaya Logo 1",
-      category: "personal",
-      type: "Script Logo",
-      // color: "from-yellow-500 to-orange-500",
-      height: "h-50",
-      img: "/assets/Logos/logo/JAYA LOGO1 (4) copy.webp",
-    },
-    {
-      id: 6,
-      title: "KNK Logo Golden",
-      category: "luxury",
-      type: "Symbol",
-      // color: "from-amber-500 to-orange-500",
-      height: "h-58",
-      img: "/assets/Logos/logo/KNK LOGO GOLDEN.webp",
-    },
-
-    {
-      id: 8,
-      title: "ICS Logo",
-      category: "tech",
-      type: "Monogram",
-      // color: "from-blue-500 to-cyan-500",
-      height: "h-48",
-      img: "/assets/Logos/logo/LCS LOGO.webp",
-    },
-    {
-      id: 9,
-      title: "Logo Final 1",
-      category: "general",
-      type: "Wordmark",
-      // color: "from-green-500 to-emerald-500",
-      height: "h-52",
-      img: "/assets/Logos/logo/logo final (1) (1).webp",
-    },
-    {
-      id: 10,
-      title: "Logo Final",
-      category: "general",
-      type: "Symbol",
-      // color: "from-red-500 to-pink-500",
-      height: "h-52",
-      img: "/assets/Logos/logo/lOGO FINAL.webp",
-    },
-    {
-      id: 11,
-      title: "Logo High",
-      category: "tech",
-      type: "Symbol + Text",
-      // color: "from-purple-500 to-pink-500",
-      height: "h-64",
-      img: "/assets/Logos/logo/logo high.webp",
-    },
-    {
-      id: 12,
-      title: "Logo Thia Pink",
-      category: "fashion",
-      type: "Wordmark",
-      // color: "from-pink-500 to-rose-500",
-      height: "h-50",
-      img: "/assets/Logos/logo/LOGO thia pink.webp",
-    },
-    {
-      id: 13,
-      title: "Logo TTK Black",
-      category: "business",
-      type: "Monogram",
-      // color: "from-gray-700 to-gray-900",
-      height: "h-48",
-      img: "/assets/Logos/logo/Logo TTK ( black).webp",
-    },
-    {
-      id: 14,
-      title: "Logo DND",
-      category: "gaming",
-      type: "Symbol",
-      // color: "from-red-500 to-orange-500",
-      height: "h-56",
-      img: "/assets/Logos/logo/LOGO_DNdd.webp",
-    },
-    {
-      id: 15,
-      title: "Logo AA",
-      category: "general",
-      type: "Wordmark",
-      // color: "from-blue-500 to-cyan-500",
-      height: "h-48",
-      img: "/assets/Logos/logo/logoaa.webp",
-    },
-    {
-      id: 16,
-      title: "Logo 2",
-      category: "general",
-      type: "Symbol",
-      // color: "from-green-500 to-teal-500",
-      height: "h-52",
-      img: "/assets/Logos/logo/logo2.webp",
-    },
-    {
-      id: 17,
-      title: "Miqh Logo",
-      category: "business",
-      type: "Monogram",
-      // color: "from-amber-500 to-orange-500",
-      height: "h-54",
-      img: "/assets/Logos/logo/Miqh Logoj.webp",
-    },
-    {
-      id: 18,
-      title: "MK Black Logo",
-      category: "fashion",
-      type: "Wordmark",
-      // color: "from-gray-700 to-black",
-      height: "h-50",
-      img: "/assets/Logos/logo/MK black logo .webp",
-    },
-    {
-      id: 19,
-      title: "MK Logo Copy",
-      category: "personal",
-      type: "Symbol + Text",
-      // color: "from-yellow-500 to-orange-500",
-      height: "h-48",
-      img: "/assets/Logos/logo/MK_Logo_ (1) - Copy.webp",
-    },
-    {
-      id: 20,
-      title: "Mrs India Logo",
-      category: "fashion",
-      type: "Wordmark",
-      // color: "from-rose-500 to-pink-500",
-      height: "h-56",
-      img: "/assets/Logos/logo/Mrs India Logo.webp",
-    },
-    {
-      id: 21,
-      title: "Pardehi Logo PNG",
-      category: "personal",
-      type: "Symbol",
-      // color: "from-green-500 to-lime-500",
-      height: "h-58",
-      img: "/assets/Logos/logo/pardehi logo png.webp",
-    },
-
-    {
-      id: 23,
-      title: "Prerna Singh Logo",
-      category: "personal",
-      type: "Script Logo",
-      // color: "from-purple-500 to-pink-500",
-      height: "h-54",
-      img: "/assets/Logos/logo/prerna singh logo.webp",
-    },
-    {
-      id: 24,
-      title: "Rambler",
-      category: "travel",
-      type: "Symbol + Text",
-      // color: "from-blue-500 to-cyan-500",
-      height: "h-52",
-      img: "/assets/Logos/logo/rambler.webp",
-    },
-    {
-      id: 25,
-      title: "Ritu Roy Logo",
-      category: "personal",
-      type: "Wordmark",
-      // color: "from-amber-500 to-orange-500",
-      height: "h-50",
-      img: "/assets/Logos/logo/ritu roy logo.webp",
-    },
-    {
-      id: 26,
-      title: "SBSB Logo",
-      category: "business",
-      type: "Monogram",
-      // color: "from-green-500 to-emerald-500",
-      height: "h-48",
-      img: "/assets/Logos/logo/SBSB logo.webp",
-    },
-    {
-      id: 27,
-      title: "Season 3 Logo",
-      category: "entertainment",
-      type: "Symbol",
-      // color: "from-red-500 to-pink-500",
-      height: "h-56",
-      img: "/assets/Logos/logo/season-3 logo.WEBP",
-    },
-    {
-      id: 28,
-      title: "Signex Logo",
-      category: "tech",
-      type: "Wordmark",
-      // color: "from-purple-500 to-pink-500",
-      height: "h-64",
-      img: "/assets/Logos/logo/signex logo.webp",
-    },
-    {
-      id: 29,
-      title: "Skin Art Logo",
-      category: "healthcare",
-      type: "Symbol + Text",
-      // color: "from-rose-500 to-red-500",
-      height: "h-52",
-      img: "/assets/Logos/logo/skin art logo.webp",
-    },
-    {
-      id: 30,
-      title: "Sri Venu",
-      category: "personal",
-      type: "Monogram",
-      // color: "from-green-500 to-teal-500",
-      height: "h-48",
-      img: "/assets/Logos/logo/sri venu.webp",
-    },
-    {
-      id: 31,
-      title: "Tender Hearts School Logo",
-      category: "education",
-      type: "Wordmark",
-      // color: "from-blue-500 to-cyan-500",
-      height: "h-54",
-      img: "/assets/Logos/logo/tender hearts school logo png.webp",
-    },
-    {
-      id: 32,
-      title: "Tiska Logo Mail",
-      category: "business",
-      type: "Symbol",
-      // color: "from-amber-500 to-orange-500",
-      height: "h-50",
-      img: "/assets/Logos/logo/TISKA LOGO MAIL.webp",
-    },
-    {
-      id: 33,
-      title: "Vinod Sharraf",
-      category: "personal",
-      type: "Script Logo",
-      // color: "from-gray-500 to-gray-700",
-      height: "h-56",
-      img: "/assets/Logos/logo/vinod sharraf png.webp",
-    },
-    {
-      id: 34,
-      title: "WhatsApp Image",
-      category: "general",
-      type: "Symbol + Text",
-      // color: "from-green-500 to-lime-500",
-      height: "h-46",
-      img: "/assets/Logos/logo/WhatsApp Image 2023-06-21 at 3.35.37 PM.webp",
-    },
-  ];
 
   const logoServices = [
     {
@@ -338,7 +335,18 @@ const LogoDesignSection = () => {
   ];
 
   const handleLoadMore = () => {
-    setVisibleLogos((prev) => prev + 6); // Load 6 more logos
+    setVisibleLogos((prev) => prev + 6);
+  };
+
+  const handleLogoClick = (logo) => {
+    setClickedLogo(logo.id === clickedLogo ? null : logo.id); // Toggle overlay
+  };
+
+  const handleLinkClick = (url) => {
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+      setClickedLogo(null); // Close overlay after redirect
+    }
   };
 
   return (
@@ -371,6 +379,12 @@ const LogoDesignSection = () => {
           </p>
         </div>
 
+        {/* Loading and Error States */}
+        {loading && (
+          <div className="text-center text-gray-600">Loading logos...</div>
+        )}
+        {error && <div className="text-center text-red-600">{error}</div>}
+
         {/* Logo Services */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {logoServices.map((service, index) => (
@@ -402,66 +416,72 @@ const LogoDesignSection = () => {
         </div>
 
         {/* Masonry Logo Portfolio */}
-        <div
-          className={`transition-all duration-300 ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-6 gap-6 space-y-6">
-            {logoPortfolio.slice(0, visibleLogos).map((logo, index) => (
-              <div
-                key={logo.id}
-                className={`break-inside-avoid group cursor-pointer transition-all duration-500 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: `${index * 50}ms` }}
-                onMouseEnter={() => setHoveredLogo(logo.id)}
-                onMouseLeave={() => setHoveredLogo(null)}
-              >
+        {!loading && (
+          <div
+            className={`transition-all duration-300 ${
+              isVisible ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-6 gap-6 space-y-6">
+              {logoPortfolio.slice(0, visibleLogos).map((logo, index) => (
                 <div
-                  className={`relative h-40 bg-gradient-to-br bg-white  rounded-2xl overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105`}
+                  key={logo.id}
+                  className={`break-inside-avoid group cursor-pointer transition-all duration-500 ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10"
+                  }`}
+                  style={{ transitionDelay: `${index * 50}ms` }}
+                  onMouseEnter={() => setHoveredLogo(logo.id)}
+                  onMouseLeave={() => setHoveredLogo(null)}
+                  onClick={() => handleLogoClick(logo)}
                 >
-                  {/* Logo Display Area */}
-                  <div className="absolute inset-0 flex items-center justify-center p-4 ">
-                    <img
-                      src={logo?.img}
-                      alt={logo.title}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-
-                  {/* Hover Overlay */}
-                  {/* <div
-                    className={`absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center transition-all duration-300 ${
-                      hoveredLogo === logo.id ? "opacity-100" : "opacity-0"
-                    }`}
+                  <div
+                    className={`relative bg-white rounded-2xl overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105 ${logo.height}`}
                   >
-                    <div className="text-center text-white p-4">
-                      <h4 className="text-xl font-bold mb-2">{logo.title}</h4>
-                      <p className="text-sm opacity-90 mb-3">{logo.type}</p>
-                      <div className="flex items-center justify-center gap-2">
-                        <Search className="w-4 h-4" />
-                        <span className="text-sm">View Details</span>
-                      </div>
+                    {/* Logo Display Area */}
+                    <div className="absolute inset-0 flex items-center justify-center p-4">
+                      <img
+                        src={logo.img}
+                        alt={logo.title}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
-                  </div> */}
 
-                  {/* Category Badge */}
-                  <div className="absolute top-3 left-3">
-                    <span className="bg-white/20 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-medium">
-                      {logo.type}
-                    </span>
+                    {/* Click Overlay with Link Icon */}
+                    {clickedLogo === logo.id && logo.url && (
+                      <div
+                        className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center transition-all duration-300"
+                        onClick={() => handleLinkClick(logo.url)}
+                      >
+                        <div className="text-white p-4">
+                          <Link className="w-8 h-8" />
+                          <span className="text-sm mt-2 block">
+                            Visit Website
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Category Badge */}
+                    <div className="absolute top-3 left-3">
+                      <span className="bg-white/20 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-medium">
+                        {logo.type}
+                      </span>
+                    </div>
+                  </div>
+                  {/* Brand Name */}
+                  <div className="mt-2 text-center text-sm font-medium text-gray-900">
+                    {logo.title}
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Load More Button */}
-        {visibleLogos < logoPortfolio.length && (
+        {!loading && visibleLogos < logoPortfolio.length && (
           <div
             className={`text-center mt-12 transition-all duration-300 ${
               isVisible
@@ -492,9 +512,10 @@ const LogoDesignSection = () => {
               Let's craft a logo that captures your brand's essence and makes a
               lasting impression on your audience.
             </p>
-            <button className="bg-white text-amber-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-lg">
-              Start Your Logo Project
-            </button>
+            <ContactPopup
+              buttonText="Create Your First Logo"
+              buttonClassName="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full font-bold shadow-lg transform hover:scale-105 transition-all"
+            />
           </div>
         </div>
       </div>

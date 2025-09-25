@@ -1,6 +1,6 @@
 
 import { ArrowUpRight, Rocket } from 'lucide-react';
-
+import Image from 'next/image'
   // Line pattern component
   const LinePattern = () => (
     <div className="absolute inset-0 opacity-10">

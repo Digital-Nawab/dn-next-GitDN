@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import Image from 'next/image'
 
 import SocialMarketing from '@/components/SocialMarketing/SocialMarketing'
 import React from 'react'

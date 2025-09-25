@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import Image from 'next/image'
 import WhyChooseUsSection from "../Home/WhychooseUs";
 import VisionMissionSection from "../Home/VIsion&Mission";
 import AboutIntro from "./AboutIntro";

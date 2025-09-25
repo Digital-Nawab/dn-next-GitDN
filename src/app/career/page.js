@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import Image from 'next/image'
 import Career from '@/components/carrer/Career'
 import React from 'react'
 

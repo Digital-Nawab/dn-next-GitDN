@@ -17,14 +17,14 @@ const SocialMarketing = () => {
       <SocialMediaHero />
       <SocialMediaServices />
       {/* <SocialFeature        sSection/> */}
-      <DigitalNawabSections/>                                                         
-      <SMOPackages/>
+      <DigitalNawabSections />
+      <SMOPackages />
       <YouTubeProcessSection />
-      <ServicesSection />                                                                                       
-      <FacebookMarketingSection />                                
-      <SMMPackages/>
+      <ServicesSection />
+      {/* <FacebookMarketingSection />                                 */}
+      <SMMPackages />
       <LinkedInMarketingSection />
-      <ContentPlanningSection />
+      {/* <ContentPlanningSection /> */}
     </div>
   );
 };

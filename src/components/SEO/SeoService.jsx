@@ -90,14 +90,14 @@ console.log(services)
               </div>
             ))}
           </div> */}
-          <div className="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+          {/* <div className="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <button className="bg-[#F6A623] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#E69520] transition">
               Free SEO Consultation
             </button>
             <button className="bg-[#6B46C1] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#5A3AB7] transition">
               Request a Free Quote
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

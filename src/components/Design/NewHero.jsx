@@ -2,7 +2,7 @@ import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import React, { useState, useEffect, useRef } from "react";
 import { ArrowRight, Play, Eye, Zap, Layers, Sparkles } from "lucide-react";
 import { ContainerTextFlip } from "@/components/ui/container-text-flip";
-
+import Image from 'next/image'
 export function NewHero() {
   const images = [
     "/assets/images/creatives/1.webp",

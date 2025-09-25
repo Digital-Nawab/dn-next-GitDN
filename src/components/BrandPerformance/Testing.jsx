@@ -1,44 +1,62 @@
-'use client';
-import React from 'react';
-import { BarChart3, TrendingUp, Target, Users, Zap, ArrowRight, LineChart, Activity } from 'lucide-react';
+"use client";
+import Image from "next/image";
+import React from "react";
+import {
+  BarChart3,
+  TrendingUp,
+  Target,
+  Users,
+  Zap,
+  ArrowRight,
+  LineChart,
+  Activity,
+} from "lucide-react";
 
 const ABTestingSection = () => {
   const features = [
     {
       icon: BarChart3,
       title: "Split Testing",
-      description: "Run controlled experiments to compare different versions of your pages and identify what converts better.",
+      description:
+        "Run controlled experiments to compare different versions of your pages and identify what converts better.",
       gradient: "from-blue-500 to-cyan-500",
-      bgGradient: "from-blue-50 to-cyan-50"
+      bgGradient: "from-blue-50 to-cyan-50",
     },
     {
       icon: TrendingUp,
       title: "Performance Analytics",
-      description: "Track key metrics and conversion rates with detailed insights into user behavior patterns.",
+      description:
+        "Track key metrics and conversion rates with detailed insights into user behavior patterns.",
       gradient: "from-purple-500 to-pink-500",
-      bgGradient: "from-purple-50 to-pink-50"
+      bgGradient: "from-purple-50 to-pink-50",
     },
     {
       icon: Target,
       title: "Funnel Analysis",
-      description: "Identify bottlenecks in your conversion funnel and optimize each step for maximum results.",
+      description:
+        "Identify bottlenecks in your conversion funnel and optimize each step for maximum results.",
       gradient: "from-emerald-500 to-teal-500",
-      bgGradient: "from-emerald-50 to-teal-50"
+      bgGradient: "from-emerald-50 to-teal-50",
     },
     {
       icon: Users,
       title: "Audience Segmentation",
-      description: "Test different approaches for various user segments to personalize the experience.",
+      description:
+        "Test different approaches for various user segments to personalize the experience.",
       gradient: "from-orange-500 to-red-500",
-      bgGradient: "from-orange-50 to-red-50"
-    }
+      bgGradient: "from-orange-50 to-red-50",
+    },
   ];
 
   const stats = [
-    { number: "87%", label: "Average Conversion Increase", color: "text-blue-600" },
+    {
+      number: "87%",
+      label: "Average Conversion Increase",
+      color: "text-blue-600",
+    },
     { number: "2.4x", label: "ROI Improvement", color: "text-purple-600" },
     { number: "15+", label: "Testing Variables", color: "text-emerald-600" },
-    { number: "48hrs", label: "Results Delivery", color: "text-orange-600" }
+    { number: "48hrs", label: "Results Delivery", color: "text-orange-600" },
   ];
 
   return (
@@ -46,8 +64,14 @@ const ABTestingSection = () => {
       {/* Enhanced Background Pattern */}
       <div className="absolute inset-0 opacity-40">
         <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-cyan-200 to-pink-200 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-emerald-200 to-teal-200 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-cyan-200 to-pink-200 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
+        <div
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-emerald-200 to-teal-200 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "2s" }}
+        ></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -61,31 +85,34 @@ const ABTestingSection = () => {
               Data-Driven Optimization
             </span>
           </div>
-          
+
           <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            A/B Testing &{' '}
+            A/B Testing &{" "}
             <span className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Funnel Optimization
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full transform scale-x-0 hover:scale-x-100 transition-transform duration-700"></div>
             </span>
           </h2>
-          
+
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Make data-driven decisions with comprehensive testing and optimization tools. 
-            Increase conversions through systematic experimentation and funnel analysis.
+            Make data-driven decisions with comprehensive testing and
+            optimization tools. Increase conversions through systematic
+            experimentation and funnel analysis.
           </p>
         </div>
 
         {/* Enhanced Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => (
-            <div 
+            <div
               key={index}
               className="bg-white/60 backdrop-blur-sm p-8 rounded-3xl border border-white/50 text-center group hover:shadow-2xl hover:-translate-y-2 hover:bg-white/80 transition-all duration-500 relative overflow-hidden"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className={`text-4xl md:text-5xl font-bold ${stat.color} mb-3 group-hover:scale-110 transition-transform duration-300 relative z-10`}>
+              <div
+                className={`text-4xl md:text-5xl font-bold ${stat.color} mb-3 group-hover:scale-110 transition-transform duration-300 relative z-10`}
+              >
                 {stat.number}
               </div>
               <div className="text-sm text-gray-600 font-medium relative z-10">
@@ -98,16 +125,18 @@ const ABTestingSection = () => {
         {/* Enhanced Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={index}
               className={`bg-gradient-to-br ${feature.bgGradient} p-8 rounded-3xl border border-white/50 group hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 relative overflow-hidden`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
+
               <div className="flex items-start gap-4 relative z-10">
                 <div className="flex-shrink-0">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}>
+                  <div
+                    className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
+                  >
                     <feature.icon className="w-8 h-8 text-white" />
                   </div>
                 </div>
@@ -127,21 +156,46 @@ const ABTestingSection = () => {
         {/* Enhanced Process Flow */}
         <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/50 shadow-xl relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50"></div>
-          
+
           <h3 className="text-3xl font-bold text-gray-900 text-center mb-12 relative z-10">
             Our Testing Process
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
             {[
-              { step: "01", title: "Hypothesis", description: "Define clear testing objectives and expected outcomes", color: "from-blue-500 to-cyan-500" },
-              { step: "02", title: "Design", description: "Create variations and set up controlled experiments", color: "from-purple-500 to-pink-500" },
-              { step: "03", title: "Execute", description: "Run tests with proper traffic allocation and monitoring", color: "from-emerald-500 to-teal-500" },
-              { step: "04", title: "Analyze", description: "Review results and implement winning variations", color: "from-orange-500 to-red-500" }
+              {
+                step: "01",
+                title: "Hypothesis",
+                description:
+                  "Define clear testing objectives and expected outcomes",
+                color: "from-blue-500 to-cyan-500",
+              },
+              {
+                step: "02",
+                title: "Design",
+                description:
+                  "Create variations and set up controlled experiments",
+                color: "from-purple-500 to-pink-500",
+              },
+              {
+                step: "03",
+                title: "Execute",
+                description:
+                  "Run tests with proper traffic allocation and monitoring",
+                color: "from-emerald-500 to-teal-500",
+              },
+              {
+                step: "04",
+                title: "Analyze",
+                description: "Review results and implement winning variations",
+                color: "from-orange-500 to-red-500",
+              },
             ].map((process, index) => (
               <div key={index} className="relative group">
                 <div className="text-center">
-                  <div className={`w-20 h-20 bg-gradient-to-br ${process.color} rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}>
+                  <div
+                    className={`w-20 h-20 bg-gradient-to-br ${process.color} rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
+                  >
                     <span className="text-2xl font-bold text-white">
                       {process.step}
                     </span>
@@ -153,7 +207,7 @@ const ABTestingSection = () => {
                     {process.description}
                   </p>
                 </div>
-                
+
                 {/* Enhanced Arrow */}
                 {index < 3 && (
                   <div className="hidden md:block absolute top-10 -right-4 transform translate-x-full">
@@ -168,17 +222,6 @@ const ABTestingSection = () => {
         </div>
 
         {/* Enhanced CTA */}
-        <div className="text-center mt-16">
-          <button className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 hover:scale-105 hover:shadow-2xl transition-all duration-300 group relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span className="relative z-10">Start Testing Today</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
-          </button>
-          
-          <p className="text-gray-500 mt-6 text-sm">
-            No setup fees • 14-day free trial • Cancel anytime
-          </p>
-        </div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image'
 import { useScroll, useTransform, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 import { Spotlight } from "@/components/ui/spotlight-new";

@@ -300,32 +300,7 @@ const EmailMarketingSection = () => {
         </div>
 
         {/* Call to Action */}
-        <div
-          className="text-center"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={containerVariants}
-        >
-          <div
-            className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl max-w-2xl mx-auto"
-            variants={cardVariants}
-          >
-            <h3 className="text-3xl font-bold mb-4 text-gray-900">
-              Ready to Boost Your Email ROI?
-            </h3>
-            <p className="text-lg text-gray-600 mb-6">
-              Let's create email campaigns that your customers actually want to receive
-            </p>
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-lg font-semibold group"
-            >
-              <Mail className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-              Start Your Campaign Today
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
-        </div>
+        
       </div>
 
       {/* Background Decorative Elements */}

@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import Image from 'next/image'
 import React, { useEffect, useState } from "react";
 import {
   Search,
@@ -19,6 +20,7 @@ import {
   Eye,
   Play,
 } from "lucide-react";
+import ContactPopup from '../ContactPopup';
 
   const iconMap = {
     "fa-solid fa-cloud": Search,
@@ -231,10 +233,14 @@ const PPCServicesSection = () => {
                 suited for your business goals and target audience.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                {/* <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
                   <Users className="w-5 h-5" />
                   Get Free Consultation
-                </button>
+                </button> */}
+                <ContactPopup
+                  buttonText=" Get Free Consultation"
+                  buttonClassName="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                />
                 <button className="border-2 border-white/30 text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-xl">
                   View Case Studies
                 </button>

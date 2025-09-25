@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react"; // For the phone icon
-
+import Image from 'next/image'
 const FooterSection = () => {
   return (
     <div className="bg-white text-black min-h-[400px] flex items-center justify-center relative overflow-hidden">

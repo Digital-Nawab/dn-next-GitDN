@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import Image from 'next/image'
 import PortfolioShowcase from '@/components/portfolio/PortfolioShowcase'
 import React from 'react'
 

@@ -1,5 +1,7 @@
 import React from "react";
 import WaveyPattern from "../../components/WaveyPattern";
+import ContactPopup from "../ContactPopup";
+import Link from "next/link";
 
 const InnovateHero = () => {
   return (
@@ -42,12 +44,19 @@ const InnovateHero = () => {
 
           {/* Buttons */}
           <div className="flex justify-center gap-4">
-            <button className="bg-black text-white px-3 lg:px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors">
+            {/* <button className="bg-black text-white px-3 lg:px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors">
               Discuss Your Project
-            </button>
+            </button> */}
+            <ContactPopup
+              buttonText="Discuss Your Project"
+              buttonClassName="bg-black text-white px-3 lg:px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors"
+            />
+            <Link href="/contact-us">
+            
             <button className="border-2 border-black text-black px-8 py-3 rounded-full text-lg font-medium hover:bg-black hover:text-white transition-colors">
               Book Consultation
             </button>
+            </Link>
           </div>
         </div>
       </div>

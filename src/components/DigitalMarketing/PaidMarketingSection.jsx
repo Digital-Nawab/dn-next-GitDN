@@ -231,18 +231,7 @@ const PaidMarketingSection = () => {
                   ))}
                 </div>
 
-                {/* CTA Button */}
-                <div
-                  whilehover={{ scale: 1.05 }}
-                  whiletap={{ scale: 0.95 }}
-                >
-                  <Button
-                    className={`group/btn bg-gradient-to-r ${service.gradient} hover:shadow-lg transition-all duration-300 text-white border-0`}
-                  >
-                    Explore Solutions
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </Button>
-                </div>
+                
               </div>
 
               {/* Decorative Elements */}
@@ -252,33 +241,7 @@ const PaidMarketingSection = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div
-          className="text-center mt-20"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={containerVariants}
-        >
-          <div
-            className="inline-flex flex-col sm:flex-row gap-4 items-center"
-            variants={itemVariants}
-          >
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Start Your Campaign
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="px-8 py-4 text-lg font-semibold rounded-full border-2 hover:bg-gray-50 transition-all duration-300"
-            >
-              Schedule Consultation
-            </Button>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

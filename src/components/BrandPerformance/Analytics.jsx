@@ -19,7 +19,7 @@ import {
   Clock,
   ArrowUpRight
 } from 'lucide-react';
-
+import Image from 'next/image'
 const AnalyticsIntegrationSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeIntegration, setActiveIntegration] = useState(0);

@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import Image from 'next/image'
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
@@ -214,18 +215,18 @@ const BrandPerformanceHero = () => {
                 }}
                 whiletap={{ scale: 0.95 }}
               >
-                <span>GET PERFORMANCE AUDIT</span>
+                <span>VIEW SUCCESS STORIES</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </motion.button>
 
-              <motion.a
+              {/* <motion.a
                 href="#"
                 className="text-white underline text-lg hover:text-purple-400 transition-colors flex items-center gap-2 group"
                 whilehover={{ x: 5 }}
               >
                 <span>VIEW SUCCESS STORIES</span>
                 <TrendingUp className="h-4 w-4 group-hover:scale-110 transition-transform" />
-              </motion.a>
+              </motion.a> */}
             </motion.div>
           </motion.div>
 

@@ -1,4 +1,5 @@
-"use client";;
+"use client";
+import Image from 'next/image';
 import React, { useState, useEffect, useId } from "react";
 
 import { motion } from "motion/react";

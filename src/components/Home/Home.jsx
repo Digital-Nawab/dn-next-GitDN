@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image'
 
 import React from "react";
 
@@ -39,9 +40,9 @@ const Home = () => {
       {/* <MaksedVideo /> */}
       {/* <EnquiryModalDemo /> */}
       <TimelineDemo />
-      <ToolsAndTechnologies />
-      <ThreeDMarqueeDemoSecond />
       <InnovateHero />
+      <ThreeDMarqueeDemoSecond />
+      <ToolsAndTechnologies />
       {/* <Testimonial /> */}
       <ContactUs />
       {/* <FAQSection /> */}

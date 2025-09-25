@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import Image from 'next/image'
 import BrandPerformanceHero from '@/components/BrandPerformance/Hero';
 import MediaBuyingSection from '@/components/BrandPerformance/MediaBuying';
 import PPC from '@/components/BrandPerformance/PPC';

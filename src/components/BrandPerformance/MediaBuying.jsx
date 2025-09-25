@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import Image from 'next/image'
 import React, { useState, useEffect } from 'react';
 import { Monitor, Smartphone, Play, Radio, CheckCircle2, ArrowRight, Globe } from 'lucide-react';
 
