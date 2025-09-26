@@ -1,6 +1,5 @@
 "use client";
-import Image from 'next/image'
-
+import Image from "next/image";
 import React, { useEffect, useState, useRef } from "react";
 import { use } from "react";
 import {
@@ -97,7 +96,10 @@ export default function JobDetailPage({ params }) {
   // Handle file upload
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    if (file && (file.type === "application/pdf" || file.type.includes("msword"))) {
+    if (
+      file &&
+      (file.type === "application/pdf" || file.type.includes("msword"))
+    ) {
       setFormData((prev) => ({ ...prev, resume: file }));
       setFormError("");
     } else {
@@ -105,34 +107,52 @@ export default function JobDetailPage({ params }) {
     }
   };
 
-  // Handle form submission
+  // Handle form submission (fixed for Laravel backend)
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError("");
     setFormSuccess("");
 
     // Validation
-    if (!formData.name || !formData.email || !formData.contact || !formData.address || !formData.experience || !formData.resume || !formData.skills.length) {
-      setFormError("Please fill in all required fields and add at least one skill.");
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.contact ||
+      !formData.address ||
+      !formData.experience ||
+      !formData.resume ||
+      !formData.skills.length
+    ) {
+      setFormError(
+        "Please fill in all required fields and add at least one skill."
+      );
       return;
     }
 
     const formDataToSend = new FormData();
-    Object.keys(formData).forEach((key) => {
-      if (key === "skills") {
-        formDataToSend.append(key, JSON.stringify(formData[key]));
-      } else if (key === "resume") {
-        if (formData[key]) formDataToSend.append(key, formData[key]);
-      } else {
-        formDataToSend.append(key, formData[key]);
-      }
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("address", formData.address);
+    formDataToSend.append("year_of_experience", formData.experience); // ✅ match backend
+    formDataToSend.append("career_id", formData.job_id); // ✅ backend expects career_id
+    formDataToSend.append("resume", formData.resume);
+    formDataToSend.append("contact_number", formData.contact);
+    formDataToSend.append("project_link", formData.projectLinks);
+    formDataToSend.append("message", formData.message);
+
+    // Send skills[] array
+    formData.skills.forEach((skill, i) => {
+      formDataToSend.append(`skills[${i}]`, skill);
     });
 
     try {
-      // Placeholder API endpoint
-      await axios.post("https://dashboard.digitalnawab.com/api/apply", formDataToSend, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      await axios.post(
+        "https://dashboard.digitalnawab.com/api/career_form",
+        formDataToSend,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
       setFormSuccess("Application submitted successfully!");
       setFormData({
         name: "",
@@ -391,7 +411,10 @@ export default function JobDetailPage({ params }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Name */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -408,7 +431,10 @@ export default function JobDetailPage({ params }) {
 
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Email <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -425,7 +451,10 @@ export default function JobDetailPage({ params }) {
 
               {/* Contact */}
               <div>
-                <label htmlFor="contact" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="contact"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Contact Number <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -442,7 +471,10 @@ export default function JobDetailPage({ params }) {
 
               {/* Address */}
               <div>
-                <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="address"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Address <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -460,7 +492,10 @@ export default function JobDetailPage({ params }) {
 
             {/* Years of Experience */}
             <div>
-              <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="experience"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Years of Experience <span className="text-red-500">*</span>
               </label>
               <input
@@ -478,7 +513,10 @@ export default function JobDetailPage({ params }) {
 
             {/* Resume Upload */}
             <div>
-              <label htmlFor="resume" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="resume"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Resume (PDF or Word) <span className="text-red-500">*</span>
               </label>
               <input
@@ -494,7 +532,10 @@ export default function JobDetailPage({ params }) {
 
             {/* Skills */}
             <div>
-              <label htmlFor="skills" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="skills"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Skills <span className="text-red-500">*</span>
               </label>
               <div className="flex items-center gap-2">
@@ -541,7 +582,10 @@ export default function JobDetailPage({ params }) {
 
             {/* Project Links */}
             <div>
-              <label htmlFor="projectLinks" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="projectLinks"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Project Links (Optional)
               </label>
               <textarea
@@ -557,7 +601,10 @@ export default function JobDetailPage({ params }) {
 
             {/* Message */}
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Message (Optional)
               </label>
               <textarea
@@ -576,7 +623,9 @@ export default function JobDetailPage({ params }) {
               <p className="text-red-500 text-sm text-center">{formError}</p>
             )}
             {formSuccess && (
-              <p className="text-green-500 text-sm text-center">{formSuccess}</p>
+              <p className="text-green-500 text-sm text-center">
+                {formSuccess}
+              </p>
             )}
 
             {/* Submit Button */}
