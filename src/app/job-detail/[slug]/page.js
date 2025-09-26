@@ -121,6 +121,7 @@ export default function JobDetailPage({ params }) {
       !formData.address ||
       !formData.experience ||
       !formData.resume ||
+      !formData.projectLinks ||
       !formData.skills.length
     ) {
       setFormError(
@@ -586,7 +587,7 @@ export default function JobDetailPage({ params }) {
                 htmlFor="projectLinks"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
-                Project Links (Optional)
+                Project Links
               </label>
               <textarea
                 id="projectLinks"
@@ -595,6 +596,7 @@ export default function JobDetailPage({ params }) {
                 onChange={handleInputChange}
                 placeholder="Enter project links (one per line)"
                 rows={4}
+                required
                 className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 transition-all duration-300 bg-gray-50 text-gray-900 placeholder-gray-400"
               />
             </div>
