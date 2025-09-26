@@ -128,80 +128,76 @@ const ContactPopup = ({
     }));
   };
 
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Validate all fields
-    const newErrors = {};
-    Object.keys(formData).forEach((key) => {
-      const error = validateField(key, formData[key]);
-      if (error) newErrors[key] = error;
-      if (!formData[key] && key !== "subService") {
-        newErrors[key] = "This field is required";
-      }
-    });
-
-    if (formData.service && !formData.subService) {
-      newErrors.subService = "Please select a specific service";
+  // Validate all fields
+  const newErrors = {};
+  Object.keys(formData).forEach((key) => {
+    const error = validateField(key, formData[key]);
+    if (error) newErrors[key] = error;
+    if (!formData[key] && key !== "subService") {
+      newErrors[key] = "This field is required";
     }
+  });
 
-    setErrors(newErrors);
+  if (formData.service && !formData.subService) {
+    newErrors.subService = "Please select a specific service";
+  }
 
-    if (Object.keys(newErrors).length === 0) {
-      try {
-        const selectedService = services.find(
-          (s) => s.name === formData.service
-        );
-        const selectedSubService = subServices.find(
-          (s) => s.name === formData.subService
-        );
+  setErrors(newErrors);
 
-        const data = {
-          name: formData.name,
-          email: formData.email,
-          number: formData.phone,
-          city: formData.city,
-          service_id: selectedService ? selectedService.id : null,
-          subservice_id: selectedSubService ? selectedSubService.id : null,
-          message: formData.message,
-        };
+  if (Object.keys(newErrors).length === 0) {
+    try {
+      const selectedService = services.find(
+        (s) => s.name === formData.service
+      );
+      const selectedSubService = subServices.find(
+        (s) => s.name === formData.subService
+      );
 
-        const config = {
-          method: "post",
-          maxBodyLength: Infinity,
-          url: "https://dashboard.digitalnawab.com/api/post_enquiry",
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        number: formData.phone,
+        city: formData.city,
+        service_id: selectedService ? selectedService.id : null,
+        subservice_id: selectedSubService ? selectedSubService.id : null,
+        message: formData.message,
+      };
+
+      const response = await axios.post(
+        "https://dashboard.digitalnawab.com/api/post_enquiry",
+        payload,
+        {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-          data: data,
-        };
+        }
+      );
 
-        await axios.request(config);
-        toast.success("Enquiry submitted successfully!");
+      toast.success("Enquiry submitted successfully!");
 
-        // Reset form and close popup
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          city: "",
-          service: "",
-          subService: "",
-          message: "",
-        });
-        setErrors({});
-        setIsOpen(false);
-      } catch (error) {
+      // Reset form + close popup
+      resetForm();
+      setIsOpen(false);
+    } catch (error) {
+      if (error.response && error.response.data.errors) {
+        // backend validation errors
+        setErrors(error.response.data.errors);
+        toast.error("Please fix the highlighted errors.");
+      } else {
         toast.error("Failed to submit enquiry");
-        console.error("Submission error:", error);
       }
+      console.error("Submission error:", error);
     }
+  }
 
-    setIsSubmitting(false);
-  };
+  setIsSubmitting(false);
+};
+
 
   // Reset form when closing
   const resetForm = () => {
@@ -248,7 +244,7 @@ const ContactPopup = ({
           </DialogHeader>
 
           <form
-            
+            onSubmit={handleSubmit}
             className="space-y-4 grid grid-cols-2 gap-x-4"
           >
             {/* Name */}
@@ -473,7 +469,7 @@ const ContactPopup = ({
               </button>
               <motion.button
                 type="submit"
-                onClick={handleSubmit}
+                // onClick={handleSubmit}
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

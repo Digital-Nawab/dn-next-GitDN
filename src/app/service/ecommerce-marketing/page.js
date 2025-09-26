@@ -22,7 +22,7 @@ import {
 
 import { motion } from "framer-motion";
 
-function page() {
+function Page() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -259,7 +259,7 @@ function page() {
               style={{ transitionDelay: "0.2s" }}
             >
               <span className="block text-white drop-shadow-2xl">Discover</span>
-              <span className="block bg-gradient-to-r from-pink-400 via-purple-400 via-cyan-400 to-pink-400 bg-clip-text text-transparent animate-gradient-shift bg-300% drop-shadow-2xl">
+              <span className="block bg-gradient-to-r from-pink-400 via-purple-400  to-pink-400 bg-clip-text text-transparent animate-gradient-shift bg-300% drop-shadow-2xl">
                 Amazing Deals
               </span>
             </h1>
@@ -285,7 +285,7 @@ function page() {
               }`}
               style={{ transitionDelay: "0.6s" }}
             >
-              Explore premium quality products at unbeatable prices. Don't miss
+              Explore premium quality products at unbeatable prices. Don`t miss
               out on our biggest sale of the year!
             </p>
 
@@ -568,7 +568,7 @@ function page() {
 
               <div className="bg-gradient-to-r from-slate-800/50 to-slate-900/50 rounded-xl p-6 border border-slate-700/50">
                 <p className="text-gray-300 leading-relaxed text-center">
-                  Because Digital Nawab operates differently, we'll offer our method and viewpoint on dealing with customers. 
+                  Because Digital Nawab operates differently, we`ll offer our method and viewpoint on dealing with customers. 
                   Our company operates on a <span className="text-emerald-400 font-semibold">full-service approach</span>. 
                   This implies that we provide services in strategy, creative, marketing, and technology all under one roof. 
                   Inbound marketing is used to get new people to your website and to build engaging website design and 
@@ -593,7 +593,7 @@ function page() {
                 <p className="text-lg text-gray-300 leading-relaxed">
                   A successful eCommerce marketing agency is on top of industry trends, processes, and software to help you flourish. 
                   A competent Digital Nawab eCommerce agency will exhibit a strong grasp of where eCommerce is heading, 
-                  whether you're seeking help with <span className="text-violet-400 font-semibold">SEO tactics</span>, 
+                  whether you`re seeking help with <span className="text-violet-400 font-semibold">SEO tactics</span>, 
                   <span className="text-purple-400 font-semibold"> site design</span>, or 
                   <span className="text-pink-400 font-semibold"> lead generation</span>.
                 </p>
@@ -667,7 +667,7 @@ function page() {
               <Search className="w-12 h-12 text-[#7D2492] mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">1. Search Engine Optimization (SEO)</h3>
               <p className="text-gray-700 text-base leading-relaxed">
-                Getting more traffic is often at the top of every business owner's thoughts. SEO increases organic (free, natural) traffic from search engines such as Google, Bing, and Yahoo. The goal is to have your product pages appear in the top 10 organic search results. There are, of course, many more pages to explore.
+                Getting more traffic is often at the top of every business owner`s thoughts. SEO increases organic (free, natural) traffic from search engines such as Google, Bing, and Yahoo. The goal is to have your product pages appear in the top 10 organic search results. There are, of course, many more pages to explore.
               </p>
             </motion.div>
 
@@ -709,7 +709,7 @@ function page() {
               <Mail className="w-12 h-12 text-[#7D2492] mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">4. Email Marketing</h3>
               <p className="text-gray-700 text-base leading-relaxed">
-                Ecommerce email marketing uses email to promote your store's items to existing or potential customers. It helps increase user engagement, client loyalty, share important information, advertise deals, and ultimately boost sales.
+                Ecommerce email marketing uses email to promote your store`s items to existing or potential customers. It helps increase user engagement, client loyalty, share important information, advertise deals, and ultimately boost sales.
               </p>
             </motion.div>
           </div>
@@ -804,7 +804,7 @@ function page() {
                   <h3 className="text-xl font-bold text-emerald-400">Smart ROI Optimization</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed">
-                  Making sure you're only selling when you have products in stock reduces wasted ad spend, 
+                  Making sure you`re only selling when you have products in stock reduces wasted ad spend, 
                   made possible by <span className="text-emerald-400 font-semibold">ROI Hunt organization tools</span>.
                 </p>
               </div>
@@ -1119,8 +1119,8 @@ function page() {
                 <div className="mt-6 p-4 bg-blue-500/10 rounded-xl border border-blue-500/20">
                   <p className="text-blue-200 text-sm leading-relaxed">
                     Associated with <span className="text-blue-400 font-semibold">40 mins on Facebook</span>, 
-                    yet minimizing FB's <span className="text-blue-400 font-semibold">30%</span> influence on investment decisions 
-                    compared to Instagram's dominance.
+                    yet minimizing FB <span className="text-blue-400 font-semibold">30%</span> influence on investment decisions 
+                    compared to Instagram dominance.
                   </p>
                 </div>
               </div>
@@ -1185,7 +1185,7 @@ function page() {
             Our Case Studies
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Actions speak louder than words. Discover how we've transformed businesses with our innovative digital solutions.
+            Actions speak louder than words. Discover how we`ve transformed businesses with our innovative digital solutions.
           </p>
         </div>
 
@@ -1241,4 +1241,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
