@@ -385,27 +385,7 @@ const MobileAppDevelopment = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center mt-20 animate-on-scroll" data-index="4">
-          <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 md:p-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Build Your App?
-            </h3>
-            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Let's transform your innovative ideas into powerful mobile applications that users love and businesses trust.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 px-8 py-4 rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
-                <Rocket className="w-5 h-5" />
-                <span>Start Your Project</span>
-              </button>
-              <button className="inline-flex items-center gap-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600 hover:border-gray-500 px-8 py-4 rounded-full text-white font-semibold transition-all duration-300">
-                <Play className="w-5 h-5" />
-                <span>View Portfolio</span>
-              </button>
-            </div>
-          </div>
-        </div>
+       
       </div>
     </section>
   );

@@ -26,7 +26,7 @@ export function TimelineDemo() {
         console.log(response.data);
         setServices(response.data);
       } catch (error) {
-        toast.error("Failed to fetch services");
+        // toast.error("Failed to fetch services");
         console.error(error);
       }
     };

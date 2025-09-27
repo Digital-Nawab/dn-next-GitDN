@@ -1,6 +1,7 @@
 
 import { ArrowUpRight, Rocket } from 'lucide-react';
 import Image from 'next/image'
+import Link from 'next/link';
   // Line pattern component
   const LinePattern = () => (
     <div className="absolute inset-0 opacity-10">
@@ -47,11 +48,15 @@ const HiringCTASection = () => {
                 where your work truly makes a difference? Join us and take the 
                 next step in your career with a team dedicated to growth.
               </p>
+
+              <Link href="/career/#apply">
+              
               
               <button className="bg-lime-400 hover:bg-lime-500 text-black font-semibold px-8 py-4 rounded-full inline-flex items-center gap-2 transition-colors duration-300">
                 Apply Now
                 <ArrowUpRight className="w-5 h-5" />
               </button>
+              </Link>
             </div>
           </div>
 

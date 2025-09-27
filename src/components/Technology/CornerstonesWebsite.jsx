@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CornerstonesWebsite() {
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+    <div className=" bg-black text-white relative overflow-hidden">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/10 to-black"></div>
@@ -27,8 +27,8 @@ export default function CornerstonesWebsite() {
       {/* Hero Section */}
       <div className="relative overflow-hidden z-10">
         <div className="absolute inset-0 "></div>
-        <div className="relative max-w-7xl mx-auto px-6 py-20 pb-16">
-          <div className="text-center mb-16">
+        <div className="relative max-w-7xl mx-auto px-6 py-10 ">
+          <div className="text-center ">
             <h1 className="text-5xl md:text-7xl font-bold bg-white bg-clip-text text-transparent mb-6 drop-shadow-2xl">
               Drive Growth
             </h1>
@@ -41,8 +41,8 @@ export default function CornerstonesWebsite() {
       </div>
 
       {/* Main Content Grid */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 ">
           {/* Unique Content Card */}
           <div className="group relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition-all duration-500"></div>
@@ -111,30 +111,7 @@ export default function CornerstonesWebsite() {
           </div>
         </div>
 
-        {/* Social Media Integration Section */}
-        {/* <div className="relative group">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-3xl transition-all duration-700"></div>
-          <div className="relative bg-gradient-to-br from-slate-900/80 to-black/80 backdrop-blur-sm border border-slate-700/20 rounded-3xl p-12 shadow-2xl shadow-slate-900/30 hover:shadow-slate-900/50 transition-all duration-700 hover:-translate-y-1 hover:border-blue-500/30">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4 transition-all duration-500 drop-shadow-lg">
-                Social Media Integration
-              </h2>
-            </div>
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-slate-300 leading-relaxed text-center transition-colors duration-500 group-hover:text-slate-200">
-                If consumers can readily share your website content and information via social media, they will spread the word about what you can offer more easily. The idea is to incorporate buttons for social sharing in a visible place. Make tracking your social media profiles easy also to people. Did you get a best social media marketing agency?
-              </p>
-              <div className="flex justify-center mt-8 space-x-4">
-                <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-8 py-3 rounded-full font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 shadow-lg shadow-blue-900/30 hover:shadow-blue-600/50 hover:shadow-xl border border-blue-500/20 hover:border-blue-400/50">
-                  Get Started
-                </button>
-                <button className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 px-8 py-3 rounded-full font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 shadow-lg shadow-purple-900/30 hover:shadow-purple-600/50 hover:shadow-xl border border-purple-500/20 hover:border-purple-400/50">
-                  Learn More
-                </button>
-              </div>
-            </div>
-          </div>
-        </div> */}
+
       </div>
 
       {/* Floating Elements */}

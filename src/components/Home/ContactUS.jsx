@@ -51,7 +51,7 @@ const ContactUs = () => {
         const response = await axios.request(config);
         setServices(response.data);
       } catch (error) {
-        toast.error("Failed to fetch services");
+        // toast.error("Failed to fetch services");
         console.error(error);
       }
     };

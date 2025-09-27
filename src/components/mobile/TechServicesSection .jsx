@@ -11,6 +11,7 @@ import {
   ChevronRight,
   Zap,
 } from "lucide-react";
+import ContactPopup from "../ContactPopup";
 
 const TechServicesSection = () => {
   const [visibleItems, setVisibleItems] = useState(new Set());
@@ -103,7 +104,7 @@ const TechServicesSection = () => {
             </span>
           </div>
           <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
-            Our Mobile App
+            Our
             <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
               Development Process
             </span>
@@ -201,7 +202,7 @@ const TechServicesSection = () => {
                         </div>
 
                         {/* Action Button */}
-                        <button
+                        {/* <button
                           className={`group/btn relative bg-gradient-to-r ${service.color} text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-current/25 overflow-hidden`}
                         >
                           <span className="relative z-10 flex items-center gap-2">
@@ -209,7 +210,11 @@ const TechServicesSection = () => {
                             <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
                           </span>
                           <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left"></div>
-                        </button>
+                        </button> */}
+                        <ContactPopup
+                          buttonText=" Start Your Project"
+                          buttonClassName={`group/btn relative bg-gradient-to-r ${service.color} text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-current/25 overflow-hidden`}
+                        />
                       </div>
                     </div>
                   </div>
@@ -222,21 +227,7 @@ const TechServicesSection = () => {
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-20">
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Transform Your Business?
-            </h3>
-            <p className="text-gray-300 mb-6">
-              Let's discuss how our technology solutions can accelerate your
-              digital journey.
-            </p>
-            <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105">
-              Start Your Project
-            </button>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

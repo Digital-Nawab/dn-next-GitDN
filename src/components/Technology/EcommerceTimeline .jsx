@@ -204,13 +204,7 @@ const EcommerceTimeline = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-20 pt-12 border-t border-purple-500/20">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 px-8 py-4 rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 cursor-pointer">
-            <Globe className="w-5 h-5" />
-            <span>Launch Your E-Commerce Success</span>
-            <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

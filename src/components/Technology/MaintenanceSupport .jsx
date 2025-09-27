@@ -1,8 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Shield, Clock, Wrench, Headphones, Zap, AlertTriangle, CheckCircle, Monitor, Database, Lock, RotateCcw, TrendingUp } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import {
+  Shield,
+  Clock,
+  Wrench,
+  Headphones,
+  Zap,
+  AlertTriangle,
+  CheckCircle,
+  Monitor,
+  Database,
+  Lock,
+  RotateCcw,
+  TrendingUp,
+} from "lucide-react";
+import Link from "next/link";
 
 const MaintenanceSupport = () => {
-const [activeCard, setActiveCard] = useState(0);
+  const [activeCard, setActiveCard] = useState(0);
   const [visibleItems, setVisibleItems] = useState(new Set());
   const [maintenanceServices, setMaintenanceServices] = useState([]);
 
@@ -21,7 +35,9 @@ const [activeCard, setActiveCard] = useState(0);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("https://dashboard.digitalnawab.com/api/getdev_maintain");
+        const res = await fetch(
+          "https://dashboard.digitalnawab.com/api/getdev_maintain"
+        );
         const json = await res.json();
         if (json.data) {
           const formatted = json.data.map((item, idx) => ({
@@ -53,10 +69,10 @@ const [activeCard, setActiveCard] = useState(0);
         "Monthly updates",
         "Daily backups",
         "Email support",
-        "Basic performance monitoring"
+        "Basic performance monitoring",
       ],
       popular: false,
-      color: "gray"
+      color: "gray",
     },
     {
       name: "Professional",
@@ -69,10 +85,10 @@ const [activeCard, setActiveCard] = useState(0);
         "Real-time backups",
         "Priority phone support",
         "Advanced performance optimization",
-        "Monthly reports"
+        "Monthly reports",
       ],
       popular: true,
-      color: "blue"
+      color: "blue",
     },
     {
       name: "Enterprise",
@@ -86,11 +102,11 @@ const [activeCard, setActiveCard] = useState(0);
         "Dedicated support manager",
         "Custom performance solutions",
         "Weekly consultations",
-        "Priority response guarantee"
+        "Priority response guarantee",
       ],
       popular: false,
-      color: "purple"
-    }
+      color: "purple",
+    },
   ];
 
   useEffect(() => {
@@ -98,19 +114,21 @@ const [activeCard, setActiveCard] = useState(0);
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisibleItems(prev => new Set([...prev, parseInt(entry.target.dataset.index)]));
+            setVisibleItems(
+              (prev) => new Set([...prev, parseInt(entry.target.dataset.index)])
+            );
           }
         });
       },
       { threshold: 0.2 }
     );
 
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const animatedElements = document.querySelectorAll(".animate-on-scroll");
     animatedElements.forEach((el) => observer.observe(el));
 
     // Auto-rotate cards
     const interval = setInterval(() => {
-      setActiveCard(prev => (prev + 1) % maintenanceServices.length);
+      setActiveCard((prev) => (prev + 1) % maintenanceServices.length);
     }, 4000);
 
     return () => {
@@ -121,22 +139,30 @@ const [activeCard, setActiveCard] = useState(0);
 
   const getPriorityColor = (priority) => {
     switch (priority) {
-      case 'Critical': return 'bg-red-100 text-red-700 border-red-200';
-      case 'High': return 'bg-orange-100 text-orange-700 border-orange-200';
-      case 'Medium': return 'bg-yellow-100 text-yellow-700 border-yellow-200';
-      default: return 'bg-gray-100 text-gray-700 border-gray-200';
+      case "Critical":
+        return "bg-red-100 text-red-700 border-red-200";
+      case "High":
+        return "bg-orange-100 text-orange-700 border-orange-200";
+      case "Medium":
+        return "bg-yellow-100 text-yellow-700 border-yellow-200";
+      default:
+        return "bg-gray-100 text-gray-700 border-gray-200";
     }
   };
 
   const getColorClasses = (color) => {
     const colors = {
-      blue: 'from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700',
-      green: 'from-green-500 to-green-600 hover:from-green-600 hover:to-green-700',
-      purple: 'from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700',
-      orange: 'from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700',
-      red: 'from-red-500 to-red-600 hover:from-red-600 hover:to-red-700',
-      indigo: 'from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700',
-      gray: 'from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700'
+      blue: "from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700",
+      green:
+        "from-green-500 to-green-600 hover:from-green-600 hover:to-green-700",
+      purple:
+        "from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700",
+      orange:
+        "from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700",
+      red: "from-red-500 to-red-600 hover:from-red-600 hover:to-red-700",
+      indigo:
+        "from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700",
+      gray: "from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700",
     };
     return colors[color] || colors.gray;
   };
@@ -155,16 +181,21 @@ const [activeCard, setActiveCard] = useState(0);
         <div className="text-center mb-16 animate-on-scroll" data-index="0">
           <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-blue-200 rounded-full px-6 py-2 mb-6 shadow-sm">
             <Wrench className="w-4 h-4 text-blue-600" />
-            <span className="text-blue-700 text-sm font-medium tracking-wider">MAINTENANCE & SUPPORT</span>
+            <span className="text-blue-700 text-sm font-medium tracking-wider">
+              MAINTENANCE & SUPPORT
+            </span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Keep Your Website
             <br />
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Running Smoothly</span>
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Running Smoothly
+            </span>
           </h2>
           <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Professional website maintenance and support services to ensure your online presence 
-            stays secure, fast, and always available for your customers.
+            Professional website maintenance and support services to ensure your
+            online presence stays secure, fast, and always available for your
+            customers.
           </p>
         </div>
 
@@ -175,13 +206,21 @@ const [activeCard, setActiveCard] = useState(0);
               key={index}
               data-index={index + 1}
               className={`animate-on-scroll group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer ${
-                activeCard === index ? 'ring-2 ring-blue-500 scale-105' : ''
-              } ${visibleItems.has(index + 1) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                activeCard === index ? "ring-2 ring-blue-500 scale-105" : ""
+              } ${
+                visibleItems.has(index + 1)
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
               style={{ transitionDelay: `${index * 100}ms` }}
               onMouseEnter={() => setActiveCard(index)}
             >
               {/* Icon */}
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${getColorClasses(service.color)} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+              <div
+                className={`w-12 h-12 rounded-xl bg-gradient-to-r ${getColorClasses(
+                  service.color
+                )} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+              >
                 <service.icon className="w-6 h-6 text-white" />
               </div>
 
@@ -197,7 +236,11 @@ const [activeCard, setActiveCard] = useState(0);
 
               {/* Priority & Response Time */}
               <div className="flex items-center justify-between mb-4">
-                <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getPriorityColor(service.priority)}`}>
+                <span
+                  className={`px-3 py-1 rounded-full text-xs font-medium border ${getPriorityColor(
+                    service.priority
+                  )}`}
+                >
                   {service.priority} Priority
                 </span>
                 <span className="text-xs text-gray-500 flex items-center gap-1">
@@ -209,7 +252,10 @@ const [activeCard, setActiveCard] = useState(0);
               {/* Features */}
               <div className="space-y-2">
                 {service.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 text-sm text-gray-600"
+                  >
                     <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
                     <span>{feature}</span>
                   </div>
@@ -229,7 +275,8 @@ const [activeCard, setActiveCard] = useState(0);
               Choose Your Support Plan
             </h3>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Flexible maintenance plans designed to fit your website's needs and budget
+              Flexible maintenance plans designed to fit your website's needs
+              and budget
             </p>
           </div>
 
@@ -238,9 +285,9 @@ const [activeCard, setActiveCard] = useState(0);
               <div
                 key={index}
                 className={`relative bg-white rounded-2xl p-8 border-2 transition-all duration-300 hover:shadow-xl ${
-                  plan.popular 
-                    ? 'border-blue-500 shadow-lg scale-105' 
-                    : 'border-gray-200 hover:border-blue-300'
+                  plan.popular
+                    ? "border-blue-500 shadow-lg scale-105"
+                    : "border-gray-200 hover:border-blue-300"
                 }`}
               >
                 {plan.popular && (
@@ -253,11 +300,19 @@ const [activeCard, setActiveCard] = useState(0);
 
                 {/* Plan Header */}
                 <div className="text-center mb-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">{plan.name}</h4>
-                  <p className="text-gray-600 text-sm mb-4">{plan.description}</p>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">
+                    {plan.name}
+                  </h4>
+                  <p className="text-gray-600 text-sm mb-4">
+                    {plan.description}
+                  </p>
                   <div className="flex items-end justify-center gap-1">
-                    <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                    <span className="text-gray-600 text-sm mb-1">/{plan.period}</span>
+                    <span className="text-4xl font-bold text-gray-900">
+                      {plan.price}
+                    </span>
+                    <span className="text-gray-600 text-sm mb-1">
+                      /{plan.period}
+                    </span>
                   </div>
                 </div>
 
@@ -272,35 +327,23 @@ const [activeCard, setActiveCard] = useState(0);
                 </div>
 
                 {/* CTA Button */}
-                <button className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
-                  plan.popular
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}>
-                  Get Started
-                </button>
+                <Link href="/contact-us" className="block">
+                  <button
+                    className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
+                      plan.popular
+                        ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 shadow-lg"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    }`}
+                  >
+                    Get Started
+                  </button>
+                </Link>
               </div>
             ))}
           </div>
         </div>
 
         {/* Emergency Support Banner */}
-        <div className="animate-on-scroll mt-16 bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl p-8" data-index="8">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl flex items-center justify-center">
-                <AlertTriangle className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h4 className="text-xl font-bold text-gray-900 mb-1">Emergency Support Available</h4>
-                <p className="text-gray-600">Website down? Critical issue? Get immediate help from our expert team.</p>
-              </div>
-            </div>
-            <button className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg">
-              Get Emergency Help
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );

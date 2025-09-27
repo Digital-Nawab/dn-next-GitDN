@@ -1,5 +1,6 @@
 import React from 'react';
 import { Check, Star, Zap, Building, Palette, Users } from 'lucide-react';
+import ContactPopup from '../ContactPopup';
 
 const GraphicPackages = () => {
   const logoPackages = [
@@ -313,9 +314,11 @@ const GraphicPackages = () => {
       <div className="text-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white">
         <h3 className="text-2xl font-bold mb-4">Ready to Build Your Brand?</h3>
         <p className="text-lg mb-6 opacity-90">Let's create something amazing together. Choose the package that fits your needs.</p>
-        <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-          Get Started Today
-        </button>
+
+         <ContactPopup
+              buttonText=" Get Started Today"
+              buttonClassName="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            />
       </div>
     </div>
     </div>

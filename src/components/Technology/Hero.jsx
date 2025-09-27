@@ -12,6 +12,7 @@ import {
   Globe,
 } from "lucide-react";
 import RotatingCircles from "./RotatingCircles";
+import Link from "next/link";
 
 const TechServicesHero = () => {
   const [currentService, setCurrentService] = useState(0);
@@ -141,8 +142,9 @@ const TechServicesHero = () => {
               left: `${particle.x}%`,
               top: `${particle.y}%`,
               opacity: particle.opacity,
-              animation: `float ${particle.speed * 3
-                }s ease-in-out infinite alternate`,
+              animation: `float ${
+                particle.speed * 3
+              }s ease-in-out infinite alternate`,
               animationDelay: `${particle.id * 0.1}s`,
             }}
           />
@@ -168,10 +170,11 @@ const TechServicesHero = () => {
           <div className="space-y-8">
             {/* Animated Badge */}
             <div
-              className={`inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-white/10 text-sm font-medium transition-all duration-300 ${isLoaded
+              className={`inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-white/10 text-sm font-medium transition-all duration-300 ${
+                isLoaded
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
-                }`}
+              }`}
             >
               <div className="relative">
                 <div className="w-2 h-2 rounded-full bg-green-400 animate-ping" />
@@ -185,10 +188,11 @@ const TechServicesHero = () => {
             {/* Main Headline */}
             <div className="space-y-6">
               <h1
-                className={`text-3xl md:text-4xl xl:text-6xl 2xl:text-8xl font-black leading-none transition-all duration-300 delay-200 ${isLoaded
+                className={`text-3xl md:text-4xl xl:text-6xl 2xl:text-8xl font-black leading-none transition-all duration-300 delay-200 ${
+                  isLoaded
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
-                  }`}
+                }`}
               >
                 <span className="block">
                   <span className="text-white">Build</span>
@@ -201,10 +205,11 @@ const TechServicesHero = () => {
               </h1>
 
               <div
-                className={`text-lg lg:text-xl 2xl:text-2xl text-gray-400 font-light transition-all duration-300 delay-400 ${isLoaded
+                className={`text-lg lg:text-xl 2xl:text-2xl text-gray-400 font-light transition-all duration-300 delay-400 ${
+                  isLoaded
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
-                  }`}
+                }`}
               >
                 Transforming ideas into digital reality with cutting-edge
                 technology
@@ -215,18 +220,21 @@ const TechServicesHero = () => {
 
             {/* CTA Buttons */}
             <div
-              className={`flex flex-col sm:flex-row gap-4 transition-all duration-300 delay-800 ${isLoaded
+              className={`flex flex-col sm:flex-row gap-4 transition-all duration-300 delay-800 ${
+                isLoaded
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
-                }`}
+              }`}
             >
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold text-lg rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25">
-                <span className="relative z-10 flex items-center gap-2">
-                  Start Building
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
-              </button>
+              <Link href="/contact-us">
+                <button className="group cursor-pointer relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold text-lg rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25">
+                  <span className="relative z-10 flex items-center gap-2">
+                    Start Building
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
+                </button>
+              </Link>
 
               <button className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-bold text-lg rounded-xl hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                 Explore Solutions
@@ -235,10 +243,11 @@ const TechServicesHero = () => {
 
             {/* Tech Stack Marquee */}
             <div
-              className={`transition-all duration-300 delay-1000 ${isLoaded
+              className={`transition-all duration-300 delay-1000 ${
+                isLoaded
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
-                }`}
+              }`}
             >
               <div className="text-sm text-gray-500 mb-3">
                 Technologies we master:
@@ -270,9 +279,7 @@ const TechServicesHero = () => {
 
           {/* Right Visual - Tech Stack Orbit */}
           <div className="relative hidden lg:flex items-center justify-center">
-
             <RotatingCircles />
-
           </div>
         </div>
       </div>

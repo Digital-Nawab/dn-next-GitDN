@@ -99,10 +99,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/about-us"
+                  href="/blog"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  About Us
+                  Blogs
                 </Link>
               </li>
               <li>

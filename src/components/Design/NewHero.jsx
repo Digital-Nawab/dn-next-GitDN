@@ -2,7 +2,8 @@ import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import React, { useState, useEffect, useRef } from "react";
 import { ArrowRight, Play, Eye, Zap, Layers, Sparkles } from "lucide-react";
 import { ContainerTextFlip } from "@/components/ui/container-text-flip";
-import Image from 'next/image'
+import Image from "next/image";
+import Link from "next/link";
 export function NewHero() {
   const images = [
     "/assets/images/creatives/1.webp",
@@ -152,10 +153,7 @@ export function NewHero() {
               >
                 <div className="overflow-hidden">
                   <div className="transition-transform duration-700 ease-in-out">
-                    <ContainerTextFlip
-                      words={creativityWords}
-                    />{" "}
-                    Meets
+                    <ContainerTextFlip words={creativityWords} /> Meets
                   </div>
                 </div>
                 <div className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
@@ -179,23 +177,25 @@ export function NewHero() {
 
             {/* Action Buttons */}
             <div
-              className={`flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-4 xl:gap-5 2xl:gap-6 mb-4 sm:mb-6 md:mb-6 lg:mb-8 xl:mb-8 2xl:mb-10 transform transition-all duration-300 delay-600 ${
+              className={`flex flex-col sm:flex-row gap-2  sm:gap-3 md:gap-4 lg:gap-4 xl:gap-5 2xl:gap-6 mb-4 sm:mb-6 md:mb-6 lg:mb-8 xl:mb-8 2xl:mb-10 transform transition-all duration-300 delay-600 ${
                 isLoaded
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-10 opacity-0"
               }`}
             >
-              <button className="group relative px-4 sm:px-6 md:px-6 lg:px-7 xl:px-8 2xl:px-10 py-2 sm:py-3 md:py-3 lg:py-3.5 xl:py-4 2xl:py-5 bg-white text-black rounded-none font-bold text-xs sm:text-sm md:text-base lg:text-base xl:text-lg 2xl:text-xl overflow-hidden transition-all duration-300 hover:bg-gray-100">
-                <span className="relative z-10 flex items-center gap-1 sm:gap-2 md:gap-2 lg:gap-2 xl:gap-3 2xl:gap-4">
-                  Explore Our Work
-                  <ArrowRight className="w-3 sm:w-4 md:w-4 lg:w-4.5 xl:w-5 2xl:w-6 h-3 sm:h-4 md:h-4 lg:h-4.5 xl:h-5 2xl:h-6 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
-              </button>
-              <button className="group flex items-center gap-1 sm:gap-2 md:gap-2 lg:gap-2 xl:gap-3 2xl:gap-4 px-4 sm:px-6 md:px-6 lg:px-7 xl:px-8 2xl:px-10 py-2 sm:py-3 md:py-3 lg:py-3.5 xl:py-4 2xl:py-5 border border-white/30 text-white rounded-none font-bold text-xs sm:text-sm md:text-base lg:text-base xl:text-lg 2xl:text-xl hover:bg-white/10 transition-all duration-300">
+              <Link href="/portfolio">
+                <button className="group cursor-pointer relative px-4 sm:px-6 md:px-6 lg:px-7 xl:px-8 2xl:px-10 py-2 sm:py-3 md:py-3 lg:py-3.5 xl:py-4 2xl:py-5 bg-white text-black rounded-none font-bold text-xs sm:text-sm md:text-base lg:text-base xl:text-lg 2xl:text-xl overflow-hidden transition-all duration-300 hover:bg-gray-100">
+                  <span className="relative z-10 flex items-center gap-1 sm:gap-2 md:gap-2 lg:gap-2 xl:gap-3 2xl:gap-4">
+                    Explore Our Work
+                    <ArrowRight className="w-3 sm:w-4 md:w-4 lg:w-4.5 xl:w-5 2xl:w-6 h-3 sm:h-4 md:h-4 lg:h-4.5 xl:h-5 2xl:h-6 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+                </button>
+              </Link>
+              {/* <button className="group flex items-center gap-1 sm:gap-2 md:gap-2 lg:gap-2 xl:gap-3 2xl:gap-4 px-4 sm:px-6 md:px-6 lg:px-7 xl:px-8 2xl:px-10 py-2 sm:py-3 md:py-3 lg:py-3.5 xl:py-4 2xl:py-5 border border-white/30 text-white rounded-none font-bold text-xs sm:text-sm md:text-base lg:text-base xl:text-lg 2xl:text-xl hover:bg-white/10 transition-all duration-300">
                 <Play className="w-3 sm:w-4 md:w-4 lg:w-4.5 xl:w-5 2xl:w-6 h-3 sm:h-4 md:h-4 lg:h-4.5 xl:h-5 2xl:h-6" />
                 Watch Our Process
-              </button>
+              </button> */}
             </div>
 
             {/* Quick Stats */}
@@ -310,7 +310,7 @@ export function NewHero() {
           </div>
         </div>
       </div>
-      
+
       {/* Overlay and Marquee */}
       <div className="absolute inset-0 z-10 h-full w-full bg-black/90 dark:bg-black/80" />
       <ThreeDMarquee
@@ -320,4 +320,3 @@ export function NewHero() {
     </div>
   );
 }
-

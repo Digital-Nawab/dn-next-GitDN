@@ -3,6 +3,8 @@
 
 import React from "react";
 import { Users, Star, Rocket, Code, Target } from "lucide-react";
+import ContactPopup from "../ContactPopup";
+import Link from "next/link";
 
 function AppDevelopmentPlatform() {
   const stats = [
@@ -71,14 +73,17 @@ function AppDevelopmentPlatform() {
             New platforms for online and mobile apps are constantly being developed, promising improved performance and compatibility for additional platforms. The mobile app environment will appear very different in ten years.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-blue-500 hover:bg-blue-600 px-8 py-4 text-white rounded-full font-semibold flex items-center gap-3 transition-all duration-300 hover:scale-105">
-              <Rocket className="w-5 h-5 text-white" />
-              Start Your Project
-            </button>
+            
+             <ContactPopup
+              buttonText=" Start Your Project"
+              buttonClassName="bg-blue-500 hover:bg-blue-600 px-8 py-4 text-white rounded-full font-semibold flex items-center gap-3 transition-all duration-300 hover:scale-105"
+            />
+            <Link href="/portfolio">
             <button className="bg-white border border-gray-300 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold flex items-center gap-3 transition-all duration-300">
               <Users className="w-5 h-5 text-blue-500" />
               View Portfolio
             </button>
+            </Link>
           </div>
         </div>
 

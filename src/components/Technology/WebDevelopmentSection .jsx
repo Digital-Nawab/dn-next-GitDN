@@ -4,6 +4,7 @@ import {
   Globe, Smartphone, Search, ShoppingCart, Database, 
   Layers, Target, Award, Users, TrendingUp
 } from 'lucide-react';
+import ContactPopup from '../ContactPopup';
 
 const WebDevelopmentSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -117,10 +118,14 @@ const WebDevelopmentSection = () => {
 
             {/* CTA Button */}
             <div className={`transition-all duration-300 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-              <button className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
+              {/* <button className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
                 <span>LET'S PLAN YOUR WEBSITE</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
+              </button> */}
+               <ContactPopup
+              buttonText="LET'S PLAN YOUR WEBSITE"
+              buttonClassName="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
+            />
             </div>
           </div>
 

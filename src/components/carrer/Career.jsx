@@ -22,7 +22,10 @@ const Career = () => {
 
       <CompanyCultureSection />
       <HiringCTASection/>
+      <section id="apply">
+
       <OpenPositionsSection/>
+      </section>
     </div>
   );
 };

@@ -2,6 +2,7 @@
 import Image from 'next/image'
 
 import React from "react";
+import ContactPopup from '../ContactPopup';
 
 function MobileBanner() {
   return (
@@ -111,20 +112,14 @@ function MobileBanner() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start py-4">
-              <button
-                href="#download"
-                className="group px-8 py-4 text-lg font-bold rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-purple-500/25 hover:shadow-2xl relative overflow-hidden"
-              >
-                <span className="relative z-10">🚀 Download Now</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
+              
 
-              <button
-                href="#features"
-                className="px-8 py-4 text-lg font-bold rounded-2xl border-2 border-purple-300 text-purple-700 bg-white/80 backdrop-blur-sm shadow-xl hover:bg-purple-50 hover:border-purple-400 hover:scale-105 transition-all duration-300"
-              >
-                ⭐ View Features
-              </button>
+               <ContactPopup
+              buttonText=" Get Started Today"
+              buttonClassName="group px-8 py-4 text-lg font-bold rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-purple-500/25 hover:shadow-2xl relative overflow-hidden"
+            />
+
+              
             </div>
           </div>
         </div>
