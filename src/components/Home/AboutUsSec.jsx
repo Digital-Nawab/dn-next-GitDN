@@ -1,5 +1,6 @@
 import React from "react";
 import { Play } from "lucide-react";
+import Link from "next/link";
 
 export default function StatsSection() {
   return (
@@ -97,34 +98,19 @@ export default function StatsSection() {
                 consumers, which is known as Digital Marketing Services.
               </p>
 
-              
-
               {/* Watch Intro Section */}
               <div className="flex items-center justify-between">
-                <div className="flex -space-x-2">
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
-                    alt="Team member"
-                    className="w-12 h-12 rounded-full border-2 border-white object-cover"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
-                    alt="Team member"
-                    className="w-12 h-12 rounded-full border-2 border-white object-cover"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
-                    alt="Team member"
-                    className="w-12 h-12 rounded-full border-2 border-white object-cover"
-                  />
-                </div>
-
-                <button className="flex items-center gap-3 bg-gray-900 text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors">
-                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <Play className="w-4 h-4 fill-white text-white ml-0.5" />
-                  </div>
-                  <span className="font-medium">WATCH INTRO</span>
-                </button>
+                <Link
+                  href="/about-us"
+                  className="text-red-500 hover:underline font-medium"
+                >
+                  <button className="flex items-center gap-3 bg-gray-900 text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors">
+                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                      <Play className="w-4 h-4 fill-white text-white ml-0.5" />
+                    </div>
+                    <span className="font-medium">KNOW MORE</span>
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
