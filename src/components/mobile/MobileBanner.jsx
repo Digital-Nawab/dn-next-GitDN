@@ -116,7 +116,7 @@ function MobileBanner() {
 
                <ContactPopup
               buttonText=" Get Started Today"
-              buttonClassName="group px-8 py-4 text-lg font-bold rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-purple-500/25 hover:shadow-2xl relative overflow-hidden"
+              buttonClassName=" cursor-pointer group px-8 py-4 text-lg font-bold rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-purple-500/25 hover:shadow-2xl relative overflow-hidden"
             />
 
               

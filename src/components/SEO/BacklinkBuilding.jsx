@@ -354,7 +354,7 @@ const BacklinkBuilding = () => {
               </button> */}
                <ContactPopup
               buttonText=" Get Started Today"
-              buttonClassName="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+              buttonClassName=" cursor-pointer bg-white text-blue-600 px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300"
             />
             </div>
           </div>

@@ -317,7 +317,7 @@ const GraphicPackages = () => {
 
          <ContactPopup
               buttonText=" Get Started Today"
-              buttonClassName="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              buttonClassName=" cursor-pointer bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             />
       </div>
     </div>

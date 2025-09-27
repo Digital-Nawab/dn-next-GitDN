@@ -253,7 +253,7 @@ const YouTubeProcessSection = () => {
                     </button> */}
                     <ContactPopup
                       buttonText="Get Started With Us"
-                      buttonClassName="bg-white text-red-500 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                      buttonClassName=" cursor-pointer bg-white text-red-500 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-2"
                     />
                     <Link href="/portfolio">
                     

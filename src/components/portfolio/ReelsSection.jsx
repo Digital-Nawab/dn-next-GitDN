@@ -355,7 +355,7 @@ const ReelsSection = ({ reels }) => {
                 </button> */}
                 <ContactPopup
                   buttonText="Start Your Viral Campaign"
-                  buttonClassName="group relative bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 inline-flex items-center gap-3 shadow-lg hover:shadow-xl hover:shadow-purple-500/25 hover:scale-105"
+                  buttonClassName=" cursor-pointer group relative bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 inline-flex items-center gap-3 shadow-lg hover:shadow-xl hover:shadow-purple-500/25 hover:scale-105"
                 />
                 {/* <button className="group bg-transparent border-2 border-purple-300 text-purple-600 px-8 py-4 rounded-full font-semibold hover:border-purple-500 hover:text-purple-700 transition-all duration-300 inline-flex items-center gap-3 hover:bg-purple-50">
                   <Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />

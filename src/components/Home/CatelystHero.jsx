@@ -49,7 +49,7 @@ const InnovateHero = () => {
             </button> */}
             <ContactPopup
               buttonText="Discuss Your Project"
-              buttonClassName="bg-black text-white px-3 lg:px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors"
+              buttonClassName=" cursor-pointer bg-black text-white px-3 lg:px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors"
             />
             <Link href="/contact-us">
             

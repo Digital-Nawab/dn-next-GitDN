@@ -164,7 +164,7 @@ const SocialMediaHero = () => {
           </button> */}
           <ContactPopup
             buttonText=" Start Today"
-            buttonClassName="inline-flex items-center gap-3 bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:bg-gray-800 hover:scale-105 hover:shadow-xl transition-all duration-300"
+            buttonClassName=" cursor-pointer inline-flex items-center gap-3 bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:bg-gray-800 hover:scale-105 hover:shadow-xl transition-all duration-300"
           />
           <button className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg border border-gray-200 hover:bg-white hover:shadow-xl hover:scale-105 transition-all duration-300">
             <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gray-900 rounded-full flex items-center justify-center">

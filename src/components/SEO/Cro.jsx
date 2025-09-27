@@ -112,7 +112,7 @@ const CROServices = () => {
         </div> */}
          <ContactPopup
               buttonText="Start Optimizing with Digital Nawab"
-              buttonClassName="bg-[#6B46C1] text-white font-semibold py-3 px-8 mt-12 rounded-lg hover:bg-[#5A3AB7] transition"
+              buttonClassName=" cursor-pointer bg-[#6B46C1] text-white font-semibold py-3 px-8 mt-12 rounded-lg hover:bg-[#5A3AB7] transition"
             />
       </div>
     </div>

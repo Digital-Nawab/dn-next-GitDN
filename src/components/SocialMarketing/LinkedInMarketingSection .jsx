@@ -246,7 +246,7 @@ const LinkedInMarketingSection = () => {
             </button> */}
             <ContactPopup
               buttonText=" Start Your Campaign"
-              buttonClassName="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+              buttonClassName=" cursor-pointer bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
             />
           </div>
         </div>

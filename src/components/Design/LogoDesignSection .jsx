@@ -514,7 +514,7 @@ const LogoDesignSection = () => {
             </p>
             <ContactPopup
               buttonText="Create Your First Logo"
-              buttonClassName="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full font-bold shadow-lg transform hover:scale-105 transition-all"
+              buttonClassName=" cursor-pointer bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full font-bold shadow-lg transform hover:scale-105 transition-all"
             />
           </div>
         </div>

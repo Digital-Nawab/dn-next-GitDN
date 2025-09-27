@@ -124,7 +124,7 @@ const WebDevelopmentSection = () => {
               </button> */}
                <ContactPopup
               buttonText="LET'S PLAN YOUR WEBSITE"
-              buttonClassName="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
+              buttonClassName=" cursor-pointer group inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
             />
             </div>
           </div>
