@@ -12,7 +12,7 @@ import { ThemeProvider } from "@/components/theme-provider.jsx";
 import "./globals.css";
 import "./app.css";
 import Link from "next/link";
-import Smooth from "@/lib/Smooth";
+// import Smooth from "@/lib/Smooth";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body suppressHydrationWarning>
-        <Smooth>
+        {/* <Smooth> */}
           <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <div className="lg:block hidden">
               <NavBar />
@@ -105,7 +105,7 @@ export default function RootLayout({ children }) {
 
             <Footer />
           </ThemeProvider>
-        </Smooth>
+        {/* </Smooth> */}
       </body>
     </html>
   );
