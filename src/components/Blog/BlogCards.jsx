@@ -34,6 +34,8 @@ const BlogCards = () => {
     fetchBlogs();
   }, []);
 
+  console.log("blogs Cards Data:", blogs);
+
   // Define category colors (you can customize these based on your needs)
   const getCategoryColor = (category) => {
     switch (category?.toLowerCase()) {

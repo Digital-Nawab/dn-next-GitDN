@@ -1,3 +1,6 @@
+
+"use client";
+
 import React from "react";
 import { Users, Star, Rocket, Code, Target } from "lucide-react";
 

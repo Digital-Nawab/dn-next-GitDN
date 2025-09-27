@@ -1,15 +1,19 @@
+// app/blog/[slug]/BlogDetailPageClient.js
 "use client";
-import Image from 'next/image'
 
+import Image from "next/image";
 import React, { useEffect, useState, useMemo } from "react";
-import { useRouter } from "next/navigation"; // instead of react-router-dom
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import { ArrowLeft, Calendar, User, Clock, Eye } from "lucide-react";
-import Banner from "@/components/Banner"; // adjust path as needed
+import Banner from "@/components/Banner";
 
-export default function BlogDetailPage({ params }) {
+export default function BlogDetailPageClient({ params }) {
   const router = useRouter();
-  const slug = decodeURIComponent(params.slug);
+  const slug = decodeURIComponent(params);
+
+  console.log(params)
+  
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -17,7 +21,6 @@ export default function BlogDetailPage({ params }) {
 
   useEffect(() => {
     let cancelled = false;
-
     const fetchBlog = async () => {
       setLoading(true);
       setError("");
@@ -26,10 +29,8 @@ export default function BlogDetailPage({ params }) {
           `https://dashboard.digitalnawab.com/api/blogdetail`,
           { params: { url: slug } }
         );
-        if (!cancelled) {
-          setData(res?.data?.data || null);
-        }
-      } catch (err) {
+        if (!cancelled) setData(res?.data?.data || null);
+      } catch {
         if (!cancelled) {
           setError("Unable to load this article.");
           setData(null);
@@ -38,19 +39,10 @@ export default function BlogDetailPage({ params }) {
         if (!cancelled) setLoading(false);
       }
     };
-
-    if (slug) {
-      fetchBlog();
-    } else {
-      setLoading(false);
-    }
-
-    return () => {
-      cancelled = true;
-    };
+    if (slug) fetchBlog();
+    return () => { cancelled = true; };
   }, [slug]);
 
-  // Fallback title
   const blogTitle = useMemo(() => {
     if (data?.title) return data.title;
     const fromSlug = (slug || "").replaceAll("-", " ");
@@ -59,7 +51,6 @@ export default function BlogDetailPage({ params }) {
       : "Blog";
   }, [data?.title, slug]);
 
-  // Format date
   const publishedDisplay = useMemo(() => {
     if (!data?.published) return "";
     try {
@@ -84,7 +75,7 @@ export default function BlogDetailPage({ params }) {
           { label: "Blog", href: "/blog" },
         ]}
       />
-
+      {/* 👇 your existing JSX stays the same */}
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -172,3 +163,5 @@ export default function BlogDetailPage({ params }) {
     </>
   );
 }
+
+

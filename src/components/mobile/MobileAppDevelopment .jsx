@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { Smartphone, Apple, Bot, Code, Zap, Rocket, Users, Star, Download, Play, ChevronRight, Layers, Target, Globe } from 'lucide-react';
 
