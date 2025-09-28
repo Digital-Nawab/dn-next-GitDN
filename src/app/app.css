@@ -104,6 +104,10 @@
   font-style: normal;
 }
 
+body{
+	scroll-behavior: smooth;
+}
+
 .custom-black-italic {
   font-family: 'custom-black-italic', sans-serif;
   font-weight: 900;

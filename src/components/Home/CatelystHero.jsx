@@ -52,10 +52,9 @@ const InnovateHero = () => {
               buttonClassName=" cursor-pointer bg-black text-white px-3 lg:px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors"
             />
             <Link href="/contact-us">
-            
-            <button className="border-2 border-black text-black px-8 py-3 rounded-full text-lg font-medium hover:bg-black hover:text-white transition-colors">
-              Book Consultation
-            </button>
+              <button className="border-2 border-black text-black px-8 py-3 rounded-full text-lg font-medium hover:bg-black hover:text-white transition-colors">
+                Book Consultation
+              </button>
             </Link>
           </div>
         </div>

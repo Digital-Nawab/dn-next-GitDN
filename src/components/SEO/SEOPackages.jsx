@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Check, X, Star, TrendingUp, Globe, ShoppingCart, MapPin } from 'lucide-react';
+import ContactPopup from '../ContactPopup';
 
 const SEOPackages = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -258,7 +259,7 @@ const SEOPackages = () => {
                   </div>
 
                   {/* CTA Button */}
-                  <button className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 ${
+                  {/* <button className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 ${
                     pkg.popular
                       ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl'
                       : `border-2 hover:text-white ${
@@ -269,7 +270,21 @@ const SEOPackages = () => {
                         }`
                   }`}>
                     Get Started
-                  </button>
+                  </button> */}
+
+                  <ContactPopup
+                  buttonText="Get Started"
+                  buttonClassName={`w-full py-3 px-4 cursor-pointer rounded-lg font-semibold transition-all duration-300 ${
+                    pkg.popular
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl'
+                      : `border-2 hover:text-white ${
+                          pkg.id === 'local' ? 'border-green-500 text-green-600 hover:bg-green-500' :
+                          pkg.id === 'standard' ? 'border-blue-500 text-blue-600 hover:bg-blue-500' :
+                          pkg.id === 'ecommerce' ? 'border-purple-500 text-purple-600 hover:bg-purple-500' :
+                          'border-orange-500 text-orange-600 hover:bg-orange-500'
+                        }`
+                  }`}
+                />
                 </div>
               </div>
             </div>

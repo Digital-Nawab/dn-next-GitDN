@@ -1,5 +1,5 @@
 "use client";
-import Image from 'next/image'
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
@@ -10,6 +10,7 @@ import {
   ArrowRight,
   Sparkles,
 } from "lucide-react";
+import Link from "next/link";
 
 const BrandPerformanceHero = () => {
   // Animation variants
@@ -178,46 +179,24 @@ const BrandPerformanceHero = () => {
               deliver measurable results and sustainable growth.
             </motion.p>
 
-            {/* Performance Metrics */}
-            <motion.div
-              className="flex flex-wrap justify-center lg:justify-start gap-6 py-3 xl:py-6"
-              variants={staggerContainer}
-            >
-              {performanceMetrics.map((metric, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  variants={textVariants}
-                  whilehover={{ scale: 1.05 }}
-                >
-                  <div
-                    className={`text-3xl font-bold bg-gradient-to-r ${metric.color} bg-clip-text text-transparent`}
-                  >
-                    {metric.value}
-                  </div>
-                  <div className="text-sm text-gray-400 mt-1">
-                    {metric.label}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-
             {/* CTA Buttons */}
             <motion.div
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6"
               variants={textVariants}
             >
-              <motion.button
-                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-4 px-8 rounded-full hover:shadow-2xl transition-all duration-300 flex items-center gap-2 group"
-                whilehover={{
-                  scale: 1.05,
-                  boxShadow: "0 20px 40px rgba(168, 85, 247, 0.4)",
-                }}
-                whiletap={{ scale: 0.95 }}
-              >
-                <span>VIEW SUCCESS STORIES</span>
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+              <Link href="/portfolio" >
+                <motion.button
+                  className="bg-gradient-to-r cursor-pointer from-purple-500 to-pink-500 text-white font-semibold py-4 px-8 rounded-full hover:shadow-2xl transition-all duration-300 flex items-center gap-2 group"
+                  whilehover={{
+                    scale: 1.05,
+                    boxShadow: "0 20px 40px rgba(168, 85, 247, 0.4)",
+                  }}
+                  whiletap={{ scale: 0.95 }}
+                >
+                  <span>VIEW SUCCESS STORIES</span>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </Link>
 
               {/* <motion.a
                 href="#"
@@ -248,7 +227,7 @@ const BrandPerformanceHero = () => {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Animated Chart/Graph Visualization */}
+               
                 <div className="absolute inset-8 flex flex-col justify-end space-y-2">
                   {[65, 85, 45, 90, 75, 95, 70].map((height, index) => (
                     <motion.div
@@ -281,7 +260,7 @@ const BrandPerformanceHero = () => {
                   ))}
                 </div>
 
-                {/* Floating Performance Indicators */}
+               
                 <motion.div
                   className="absolute top-4 right-4 bg-green-500/20 backdrop-blur-sm rounded-full p-3 border border-green-500/30"
                   animate={{ y: [0, -10, 0] }}

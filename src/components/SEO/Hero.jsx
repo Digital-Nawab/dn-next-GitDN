@@ -1,7 +1,8 @@
 "use client";
-import Image from 'next/image'
+import Image from "next/image";
 import React from "react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -13,13 +14,14 @@ const HeroSection = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Your SEO Agency",
-            "url": "https://yourwebsite.com",
-            "description": "Data-driven SEO strategies that help businesses dominate search results and grow online.",
-            "service": {
+            name: "Your SEO Agency",
+            url: "https://yourwebsite.com",
+            description:
+              "Data-driven SEO strategies that help businesses dominate search results and grow online.",
+            service: {
               "@type": "Service",
-              "name": "SEO Services",
-              "description": "Professional SEO audit and optimization services",
+              name: "SEO Services",
+              description: "Professional SEO audit and optimization services",
             },
           }),
         }}
@@ -44,29 +46,36 @@ const HeroSection = () => {
           <div className="col-span-3 space-y-3 xl:space-y-6 text-center lg:text-left">
             <h1 className="text-4xl  lg:text-5xl 2xl:text-6xl font-extrabold leading-tight text-white">
               <span className="bg-gradient-to-r from-white via-[#D4FF66] via-[#4ade80] to-white bg-clip-text text-transparent">
-              Best SEO Company in 
+                Best SEO Company in
               </span>
-              <br />                                                                      
-              Lucknow for Organic Growth  <br />
+              <br />
+              Lucknow for Organic Growth <br />
               <span className="bg-gradient-to-r from-[#D4FF66] via-[#4ade80] to-[#22c55e] bg-clip-text text-transparent">
-              – Digital Nawab
+                – Digital Nawab
               </span>
             </h1>
 
             <p className="text-lg xl:text-xl text-gray-200 max-w-3xl mx-auto lg:mx-0">
-            SEO services with ROI, Local Search engine optimisation, Increasing Website traffic, optimising keyword ranking, Technical analysis, Content strategy, E-commerce optimisation, and Digital marketing.
+              SEO services with ROI, Local Search engine optimisation,
+              Increasing Website traffic, optimising keyword ranking, Technical
+              analysis, Content strategy, E-commerce optimisation, and Digital
+              marketing.
             </p>
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6 pt-6">
-                <button 
-                  className="group relative bg-gradient-to-r from-[#D4FF66] via-[#4ade80] to-[#22c55e] text-black font-bold py-4 px-8 rounded-full hover:from-[#C0E55A] hover:via-[#22c55e] hover:to-[#16a34a] transition-all duration-500 transform hover:scale-110 shadow-lg hover:shadow-2xl hover:shadow-[#4ade80]/30 animate-shimmer bg-[length:200%_100%]"
+              <Link href="#audit-form" className="w-full sm:w-auto">
+                <button
+                  className="group cursor-pointer relative bg-gradient-to-r from-[#D4FF66] via-[#4ade80] to-[#22c55e] text-black font-bold py-4 px-8 rounded-full hover:from-[#C0E55A] hover:via-[#22c55e] hover:to-[#16a34a] transition-all duration-500 transform hover:scale-110 shadow-lg hover:shadow-2xl hover:shadow-[#4ade80]/30 animate-shimmer bg-[length:200%_100%]"
                   aria-label="Get your free SEO audit"
                 >
-                  <span className="relative z-10">CLAIM YOUR FREE SEO AUDIT</span>
+                  <span className="relative z-10">
+                    CLAIM YOUR FREE SEO AUDIT
+                  </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-300"></div>
                 </button>
-                <a
+              </Link>
+              {/* <a
                   href="#case-studies"
                   className="group text-white underline decoration-[#D4FF66] decoration-2 underline-offset-4 text-lg hover:text-[#D4FF66] transition-all duration-300 font-semibold relative"
                   aria-label="View our SEO case studies and results"
@@ -76,8 +85,8 @@ const HeroSection = () => {
                   <svg className="inline-block ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
                   </svg>
-                </a>
-              </div>
+                </a> */}
+            </div>
 
             {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-8 text-white text-center">

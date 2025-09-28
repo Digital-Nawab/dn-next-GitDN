@@ -169,86 +169,22 @@ const PPC = () => {
             <div className="space-y-8">
               <div className="relative">
                 {/* Main Card */}
-                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-3xl p-12 shadow-2xl hover:shadow-indigo-500/25 transition-all duration-500">
+                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-3xl p-3 shadow-2xl hover:shadow-indigo-500/25 transition-all duration-500">  
                   {/* Header */}
-                  <div className="text-center mb-12">
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-4">
-                      <Award className="w-4 h-4" />
-                      Premium Features
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                      PPC Excellence
-                    </h3>
-                    <div className="flex justify-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-5 h-5 text-yellow-400 fill-current"
-                        />
-                      ))}
-                    </div>
-                  </div>
+                  <Image
+                    loading="lazy"
+                    src="/assets/images/ppc.png"
+                    width={600}
+                    height={600}
+                    className="rounded-2xl"
+                    />
 
-                  {/* Feature Cards */}
-                  <div className="grid grid-cols-2 gap-8">
-                    <div className="group text-center hover:transform hover:scale-110 transition-all duration-500">
-                      <div className="relative mb-6">
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div className="relative w-24 h-24 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto shadow-2xl">
-                          <Search className="w-12 h-12 text-white" />
-                        </div>
-                      </div>
-                      <h3 className="font-bold text-white mb-3 text-xl">
-                        Search Ads
-                      </h3>
-                      <p className="text-gray-400 leading-relaxed">
-                        Appear on search results
-                      </p>
-                    </div>
-
-                    <div className="group text-center hover:transform hover:scale-110 transition-all duration-500">
-                      <div className="relative mb-6">
-                        <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div className="relative w-24 h-24 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto shadow-2xl">
-                          <TrendingUp className="w-12 h-12 text-white" />
-                        </div>
-                      </div>
-                      <h3 className="font-bold text-white mb-3 text-xl">
-                        Performance
-                      </h3>
-                      <p className="text-gray-400 leading-relaxed">
-                        Track every click & conversion
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Stats */}
-                  <div className="mt-12 grid grid-cols-3 gap-4 pt-8 border-t border-white/10">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-400">
-                        98%
-                      </div>
-                      <div className="text-xs text-gray-400">Success Rate</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-green-400">
-                        24/7
-                      </div>
-                      <div className="text-xs text-gray-400">Support</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-purple-400">
-                        500+
-                      </div>
-                      <div className="text-xs text-gray-400">Campaigns</div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section>``
 
       
 

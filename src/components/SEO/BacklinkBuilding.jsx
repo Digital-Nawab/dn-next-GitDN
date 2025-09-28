@@ -298,9 +298,13 @@ const BacklinkBuilding = () => {
                     </div>
 
                     {/* Description */}
-                    <div className="text-gray-700 text-lg leading-relaxed">
+                    {/* <div className="text-gray-700 text-lg leading-relaxed">
                       {section.description}
-                    </div>
+                    </div> */}
+                    <div
+                      className="text-gray-700 text-lg leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: section.description }}
+                    />
 
                     {/* Features List */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -352,10 +356,10 @@ const BacklinkBuilding = () => {
               >
                 Get Started Today
               </button> */}
-               <ContactPopup
-              buttonText=" Get Started Today"
-              buttonClassName=" cursor-pointer bg-white text-blue-600 px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300"
-            />
+              <ContactPopup
+                buttonText=" Get Started Today"
+                buttonClassName=" cursor-pointer bg-white text-blue-600 px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+              />
             </div>
           </div>
         </div>
