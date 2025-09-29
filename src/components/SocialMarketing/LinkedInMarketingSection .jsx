@@ -24,7 +24,7 @@ const LinkedInMarketingSection = () => {
       title: "Run Compelling LinkedIn Ads",
       description:
         "Run your marketing campaign around clearly defined goals, targeted audience and maximum engagement. Our LinkedIn Text Ads and Dynamic Ads are easy and precise to the platform and offers the flexibility to target niche audiences, drive traffic to a specific URL and can be personalized.",
-      image: "/api/placeholder/400/300",
+      image: "/assets/ads/linkedin.jpg",
       color: "from-blue-500 to-cyan-500",
     },
     {
@@ -32,7 +32,7 @@ const LinkedInMarketingSection = () => {
       title: "Be Visible With Sponsored Content",
       description:
         "Enable high-value interactions through customized, private messages with our LinkedIn Sponsored Content approach. Through sponsored content, we will help you promote an asset that you have already published on your LinkedIn Page which will attract users outside of your followers and visitors.",
-      image: "/api/placeholder/400/300",
+      image: "/assets/ads/sponsor.webp",
       color: "from-purple-500 to-pink-500",
     },
     {
@@ -40,7 +40,7 @@ const LinkedInMarketingSection = () => {
       title: "Personalized InMails",
       description:
         "Increase click-through rates and grow conversions. Send personalized messages to your target audience through our Sponsored InMail services. Our InMails have compelling content with unique presentations to catch the attention of the reader.",
-      image: "/api/placeholder/400/300",
+      image: "/assets/ads/mail.png",
       color: "from-green-500 to-teal-500",
     },
     {
@@ -48,7 +48,7 @@ const LinkedInMarketingSection = () => {
       title: "Prospect And List Building",
       description:
         "Narrow down leads before converting them to customers with the help of LinkedIn marketing strategies from Digital Nawab, one of best LinkedIn Marketing companies in Lucknow. LinkedIn strategy of Digital Nawab helps in narrowing down users and directly target the niche audience.",
-      image: "/api/placeholder/400/300",
+      image: "/assets/ads/list.webp",
       color: "from-orange-500 to-red-500",
     },
     {
@@ -56,7 +56,7 @@ const LinkedInMarketingSection = () => {
       title: "Integration",
       description:
         "We Digital Nawab, a top LinkedIn marketing companies Lucknow will implement advanced the analytics for deeper insights into customer behavior. As we offer integration of LinkedIn marketing with other platforms such as Google Analytics to obtain elaborate insights into customer behavior.",
-      image: "/api/placeholder/400/300",
+      image: "/assets/ads/integration.webp",
       color: "from-indigo-500 to-purple-500",
     },
   ];
