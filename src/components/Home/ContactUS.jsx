@@ -349,7 +349,7 @@ const ContactUs = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      placeholder="John Doe"
+                      placeholder="Name"
                       required
                       className={`w-full px-4 py-3 bg-black/20 border ${
                         errors.name ? "border-red-400" : "border-white/10"
@@ -373,7 +373,7 @@ const ContactUs = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="9199999999999"
+                      placeholder="Phone Number"
                       maxLength={13}
                       minLength={10}
                       required
@@ -402,7 +402,7 @@ const ContactUs = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="john@example.com"
+                      placeholder="Email Address"
                       required
                       className={`w-full px-4 py-3 bg-black/20 border ${
                         errors.email ? "border-red-400" : "border-white/10"
@@ -426,7 +426,7 @@ const ContactUs = () => {
                       name="city"
                       value={formData.city}
                       onChange={handleInputChange}
-                      placeholder="Lucknow"
+                      placeholder="City"
                       required
                       className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-transparent outline-none transition-all text-white placeholder-white/60 backdrop-blur-sm"
                     />
@@ -496,13 +496,13 @@ const ContactUs = () => {
                 <div>
                   <label className="block text-white/90 font-medium mb-2 text-xs uppercase tracking-wide">
                     <MessageSquare className="inline w-3 h-3 mr-1" />
-                    Project Details *
+                    Message *
                   </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="Tell us about your project requirements..."
+                    placeholder=" Type your message here."
                     rows={3}
                     required
                     className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-transparent outline-none transition-all resize-none text-white placeholder-white/60 backdrop-blur-sm"
