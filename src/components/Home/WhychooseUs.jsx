@@ -30,12 +30,12 @@ export default function WhyChooseUsSection() {
           </div>
 
           {/* Main Heading with enhanced typography */}
-          <h1 className="text-4xl lg:text-6xl custom-bold text-white mb-16 max-w-4xl leading-tight">
+          {/* <h1 className="text-4xl lg:text-6xl custom-bold text-white mb-16 max-w-4xl leading-tight">
             Expert Digital Marketing Team with{" "}
             <span className="">
               <ColourfulText text="Proven Results" />
             </span>
-          </h1>
+          </h1> */}
 
           <div className=" ">
             <div className="grid z-30 transition-all grid-cols-1 lg:grid-cols-3 gap-4  mx-auto w-full">
