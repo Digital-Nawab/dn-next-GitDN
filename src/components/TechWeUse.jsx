@@ -25,7 +25,7 @@ const TechnologyCard = ({ tech }) => {
           </span>
         )}
       </div>
-      <h3 className="text-gray-800 custom-bold font-semibold text-xl">
+      <h3 className="text-gray-800 custom-bold font-semibold text-base lg:text-lg 2xl:text-xl">
         {tech.name}
       </h3>
     </div>

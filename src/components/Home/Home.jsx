@@ -28,6 +28,7 @@ import { ThreeDMarqueeDemoSecond } from "./ThreeDMarqueeDemoSecond";
 import WhyChooseUsSection from "./WhychooseUs";
 import BlogSection from "./Blogs";
 import StatsSection from "./AboutUsSec"
+import MaksedVideo from "../MaskedVideo";
 
 
 const Home = () => {

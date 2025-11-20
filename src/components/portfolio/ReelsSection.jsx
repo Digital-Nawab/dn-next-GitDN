@@ -129,62 +129,20 @@ const ReelsSection = ({ reels }) => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-50 to-pink-50 px-6 py-3 rounded-full border border-purple-200 mb-8">
-            <div className="relative">
-              <Play className="w-5 h-5 text-purple-600" />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-ping" />
-            </div>
-            <span className="text-purple-700 font-medium">
-              Viral Reels Portfolio
-            </span>
-          </div>
+          
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-pink-800 bg-clip-text text-transparent leading-tight">
-            Scroll-Stopping
-            <br />
+           
             <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
               Reels That Convert
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
             We create viral content that doesn't just get views—it drives real
-            business results. Our reels have generated over{" "}
-            <span className="text-purple-600 font-semibold">
-              $2M in client revenue
-            </span>{" "}
-            and counting.
+            business results. 
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div
-          className={`grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 transition-all duration-300 delay-300 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="group relative bg-white rounded-2xl p-4 sm:p-6 border border-gray-200 hover:border-purple-300 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/10"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-3">
-                  <div
-                    className={`p-2 sm:p-3 bg-gradient-to-r ${stat.color} rounded-xl shadow-lg`}
-                  >
-                    <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                  </div>
-                </div>
-                <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1 group-hover:scale-110 transition-transform duration-300">
-                  {stat.value}
-                </div>
-                <div className="text-gray-500 text-xs sm:text-sm">
-                  {stat.label}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+       
 
         {/* Reels Grid - Phone-like format */}
         <div
