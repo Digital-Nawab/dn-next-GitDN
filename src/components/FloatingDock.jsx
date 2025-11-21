@@ -152,8 +152,6 @@ const FloatingDock = () => {
                   buttonText="Get Started Now"
                   buttonClassName=" cursor-pointer group bg-lime-400 z-50 hover:bg-lime-500 text-gray-900 font-semibold px-4 py-2 rounded-xl transition-all duration-300 flex items-center gap-3 shadow-[inset_1px_2px_5px_#00000080]"
                 />
-                
-             
             </div>
             
           </div>
