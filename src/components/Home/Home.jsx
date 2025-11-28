@@ -30,7 +30,6 @@ import BlogSection from "./Blogs";
 import StatsSection from "./AboutUsSec"
 import MaksedVideo from "../MaskedVideo";
 
-
 const Home = () => {
   return (
     <>

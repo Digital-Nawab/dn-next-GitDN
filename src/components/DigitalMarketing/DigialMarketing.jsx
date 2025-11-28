@@ -156,9 +156,7 @@ const DigialMarketing = () => {
                   buttonText=" Start Campaign"
                   buttonClassName=" cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                 />
-                <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold text-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300">
-                  View Examples
-                </button>
+              
               </div>
             </div>
           </div>

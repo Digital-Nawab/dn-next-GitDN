@@ -119,34 +119,18 @@ const MobileAppDevelopment = () => {
           </p>
         </div>
 
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 animate-on-scroll" data-index="1">
-          {appStats.map((stat, index) => (
-            <div
-              key={index}
-              className={`bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 text-center hover:border-blue-500/50 transition-all duration-300 ${
-                visibleItems.has(1) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <stat.icon className="w-8 h-8 text-blue-400 mx-auto mb-3" />
-              <div className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.value}</div>
-              <div className="text-gray-400 text-sm">{stat.label}</div>
-            </div>
-          ))}
-        </div>
 
         
         {/* Development Process */}
         <div className="animate-on-scroll" data-index="3">
-          <div className="text-center mb-12">
+          {/* <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Mobile App Development Services
             </h3>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               A proven methodology that ensures your app is delivered on time, within budget, and exceeds expectations
             </p>
-          </div>
+          </div> */}
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {developmentProcess.map((step, index) => (

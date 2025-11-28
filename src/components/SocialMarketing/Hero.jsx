@@ -166,35 +166,16 @@ const SocialMediaHero = () => {
             buttonText=" Start Today"
             buttonClassName=" cursor-pointer inline-flex items-center gap-3 bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:bg-gray-800 hover:scale-105 hover:shadow-xl transition-all duration-300"
           />
-          <button className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg border border-gray-200 hover:bg-white hover:shadow-xl hover:scale-105 transition-all duration-300">
+          {/* <button className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg border border-gray-200 hover:bg-white hover:shadow-xl hover:scale-105 transition-all duration-300">
             <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gray-900 rounded-full flex items-center justify-center">
               <Play className="w-4 h-4 text-white" />
             </div>
             Watch a demo
-          </button>
+          </button> */}
         </div>
 
         {/* Stats */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-3xl mx-auto">
-          {[
-            { number: "500M+", label: "Social Reach" },
-            { number: "25K+", label: "Active Campaigns" },
-            { number: "98%", label: "Client Satisfaction" },
-            { number: "15+", label: "Platforms" },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="bg-white/60 backdrop-blur-sm p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-white/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="text-xl sm:text-2xl font-bold text-gray-900 mb-0.5">
-                {stat.number}
-              </div>
-              <div className="text-xs sm:text-sm text-gray-600 font-medium">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
+       
       </div>
 
       {/* Vertical Divider */}

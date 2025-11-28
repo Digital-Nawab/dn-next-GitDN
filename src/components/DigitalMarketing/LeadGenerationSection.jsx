@@ -161,7 +161,7 @@ const EnhancedLeadGenerationSection = () => {
           </p>
 
           {/* Stats Bar */}
-          <div
+          {/* <div
             className="flex flex-wrap justify-center gap-8 mb-12"
             variants={fadeInUpVariants}
           >
@@ -179,15 +179,9 @@ const EnhancedLeadGenerationSection = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
 
-          <p
-            className="text-lg text-gray-400 max-w-3xl mx-auto"
-            variants={fadeInUpVariants}
-          >
-            Our comprehensive approach combines data-driven insights, advanced automation, 
-            and personalized engagement to ensure sustainable growth for businesses of all sizes.
-          </p>
+          
         </div>
 
         {/* Enhanced Features Section */}
@@ -245,14 +239,14 @@ const EnhancedLeadGenerationSection = () => {
                       {feature.description}
                     </p>
                     
-                    <button
+                    {/* <button
                       className="flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors group-hover:gap-3"
                       whilehover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                     >
                       <span>Learn more</span>
                       <ArrowRight className="h-4 w-4" />
-                    </button>
+                    </button> */}
                   </CardContent>
                 </div>
               </Card>

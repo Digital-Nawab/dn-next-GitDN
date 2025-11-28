@@ -27,17 +27,7 @@ const HeroSection = () => {
                 Unleash the power of data-driven strategies, engaging content,
                 and cutting-edge campaigns to dominate the digital landscape.
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                <button className="bg-[#D4FF66] text-black font-semibold py-3 px-6 rounded-full hover:bg-[#C0E55A] transition">
-                  CLAIM YOUR FREE SEO AUDIT
-                </button>
-                <a
-                  href="#"
-                  className="text-white !underline text-lg hover:text-[#D4FF66] transition"
-                >
-                  SEE HOW WE RANK WEBSITES
-                </a>
-              </div>
+              
             </div>
 
             {/* Right Graphic Section (Placeholder) */}
